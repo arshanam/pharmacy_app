@@ -3,12 +3,18 @@
 //database connection
 define("DBUSER", "root");
 define("DBNAME", "pharmacy_app");
-define("DBPASS", "athlonamd");
+define("DBPASS", "");
 define("DBHOST", "localhost");
 define("BASEURL", "http://localhost/pharmacy_app/backend/");
 
-$db = new db("mysql:host=".DBHOST.";dbname=".DBNAME.";charset=utf8", DBUSER, DBPASS);
-$db->setErrorCallbackFunction("echo");
+//$db = new db("mysql:host=".DBHOST.";dbname=".DBNAME.";charset=utf8", DBUSER, DBPASS);
+//$db->setErrorCallbackFunction("echo");
+
+if (!function_exists('mysqli_init') && !extension_loaded('mysqli'))
+	echo 'We don\'t have mysqli!!!';
+
+$db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
+
 
 function display_all($var){
 	$return = '';

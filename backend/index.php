@@ -27,8 +27,8 @@
 
   
 	error_reporting(E_ALL);
-	session_start();
-	include_once 'classes/class.dbo.php';
+	//session_start();
+	require_once 'classes/class.mysqli.php';
 	include_once 'includes/required.php';
 	include_once 'classes/class.user.php';
 	/*
