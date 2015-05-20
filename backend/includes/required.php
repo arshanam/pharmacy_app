@@ -7,6 +7,14 @@ define("DBPASS", "");
 define("DBHOST", "localhost");
 define("BASEURL", "http://localhost/pharmacy_app/backend/");
 
+/*
+define("DBHOST", "localhost");
+define("DBUSER", "a92619sb_pharm");
+define("DBNAME", "a92619sb_pharm");
+define("DBPASS", "and123ros");
+define("BASEURL", "http://a92619.sb1.dev.codeanywhere.net/pharmacy_app/");
+*/
+
 //$db = new db("mysql:host=".DBHOST.";dbname=".DBNAME.";charset=utf8", DBUSER, DBPASS);
 //$db->setErrorCallbackFunction("echo");
 
@@ -25,6 +33,29 @@ function display_all($var){
 	return $return;
 }
 
+function check_for_notifications(){
+	//if(isset($_SESSION['result']) && $_SESSION['result']!=''){ ?>
+		<script type="text/javascript">
+			$(function()	{
+				//Gritter notification
+					$.gritter.add({
+						title: '<i class="fa fa-check-circle"></i> This is a success notification',
+						text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+						sticky: false,
+						time: '',
+						class_name: 'gritter-success'
+					});
+					return false;
+			});
+	</script>
+<!--
+		<div class="alert alert-<?=$_SESSION['result']['res']?>">
+			<strong><?=$_SESSION['result']['msg']?></strong>
+		</div>-->
+<?php
+		//unset($_SESSION['result']);
+	//}
+}
 
 function get_notification(){
 	
@@ -57,13 +88,21 @@ function post_text_variable($var){
 	return $return_var;
 }
 
+function redirect($url, $statusCode = 303)
+{
+   header('Location: ' . $url, true, $statusCode);
+   die();
+}
+
+
+
 function get_fullname($uid) {
     $result = mysql_query("SELECT name FROM users WHERE uid = $uid");
     $user_data = mysql_fetch_array($result);
     echo $user_data['name'];
 }
 	  
-	
+
 function get_session(){
 	return $_SESSION['login'];
 }

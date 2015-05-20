@@ -14,9 +14,9 @@
 	</div>
 	
 	<div class="form-group">
-		<label for="last_name" class="col-lg-2 control-label">Last Name:</label>
+		<label for="lastname" class="col-lg-2 control-label">Last Name:</label>
 		<div class="col-lg-10">
-			<input class="form-control" id="last_name" name="last_name" type="text">
+			<input class="form-control" id="lastname" name="lastname" type="text">
 		</div>
 	</div>
 
@@ -33,16 +33,6 @@
 			<textarea class="form-control" name="address" id="address" rows="3"></textarea>
 		</div><!-- /.col -->
 	</div><!-- /form-group -->
-
-		<div class="form-group">
-		<label class="control-label col-lg-3">Required</label>
-		<div class="col-lg-9">
-			<input type="text" class="form-control input-sm" data-required="true" placeholder="Required Field">
-			<div class="seperator"></div>
-		</div><!-- /.col -->
-	</div><!-- /form-group -->
-
-
 	
 	<div class="form-group">
 		<label class="col-lg-2 control-label" for="city">City:</label>
@@ -50,7 +40,7 @@
 			<select id="city" name="city" class="form-control">
 				<option value="">Please Select a city: </option>
 				<?php
-					$cities = $db->select("city");
+					$cities = $db->get("city");
 					foreach($cities as $city):
 						echo'<option value="'.$city['id'].'">'.$city['city'].'</option>';
 				?>
@@ -73,10 +63,6 @@
 			<input class="form-control" id="alternative_phone_number" name="alternative_phone_number" type="text">
 		</div>
 	</div>
-
-
-
-
 
 	<div class="form-group">
 		<label class="col-lg-2 control-label"></label>

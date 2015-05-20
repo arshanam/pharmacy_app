@@ -1,15 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 17, 2015 at 06:04 PM
--- Server version: 5.5.43-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.9
+-- Host: 127.0.0.1
+-- Generation Time: May 20, 2015 at 05:50 PM
+-- Server version: 5.5.21
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-USE pharmacy_app;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -73,6 +72,20 @@ INSERT INTO `company` (`id`, `title`, `date_created`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `log_activity`
+--
+
+CREATE TABLE IF NOT EXISTS `log_activity` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `user_id` int(12) NOT NULL,
+  `action` int(12) NOT NULL,
+  `date_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pharmacy`
 --
 
@@ -84,19 +97,26 @@ CREATE TABLE IF NOT EXISTS `pharmacy` (
   `city` int(1) NOT NULL,
   `address` varchar(400) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
-  `alternative_phone` varchar(20) NOT NULL,
+  `alternative_phone_number` varchar(20) NOT NULL,
   `status` enum('0','1') NOT NULL,
   `date_created` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `pharmacy`
 --
 
-INSERT INTO `pharmacy` (`id`, `name`, `lastname`, `title`, `city`, `address`, `phone_number`, `alternative_phone`, `status`, `date_created`) VALUES
+INSERT INTO `pharmacy` (`id`, `name`, `lastname`, `title`, `city`, `address`, `phone_number`, `alternative_phone_number`, `status`, `date_created`) VALUES
 (14, 'Andros', '', 'Latsia Pharmacy', 1, 'Anatolis 63 Kallithea, Dali', '+35796556428', '', '1', '2015-05-17 17:47:54'),
-(15, '', '', 'Latsia Pharmacy', 1, 'Anatolis 63 Kallithea, Dali', '+35796556428', '', '1', '2015-05-17 17:48:12');
+(16, 'Marios', 'Georgiou', 'Lakatamia', 2, 'Apartment 505, Fresh\r\n138 Chapel Street', '01142422084', '01142422084', '1', '2015-05-20 13:12:42'),
+(17, 'Costas', 'Katsiaris\r\n', 'Agios Dometios', 3, 'Apartment 505, Fresh\r\n138 Chapel Street', '123654789', '987456321', '1', '2015-05-20 13:17:43'),
+(18, 'Michalis', '', 'Dali', 4, 'Anatolis  63 Kallithea Dali', '96556428', '', '1', '2015-05-20 13:22:41'),
+(19, 'Maria', 'Skordi', 'Maria''s Pharmacy', 1, 'Kykkou 2 Diamerisma 2, Lakatameia', '22489107', '', '1', '2015-05-20 17:09:45'),
+(20, 'Demetris', '', 'Demetris PeraCHorio', 3, 'Lidras 16', '22489107', '', '1', '2015-05-20 17:16:14'),
+(21, 'Andreas', '', 'MRaaaaaaaaaaa', 3, 'Apartment 505, Fresh\r\n138 Chapel Street', '01142422084', '01142422084', '1', '2015-05-20 17:17:23'),
+(22, 'Andreas', '', '', 0, 'Apartment 505, Fresh\r\n138 Chapel Street', '01142422084', '01142422084', '1', '2015-05-20 17:17:37'),
+(23, 'Kyriakou', '', '', 0, 'Apartment 505, Fresh\r\n138 Chapel Street', '01142422084', '01142422084', '1', '2015-05-20 17:46:01');
 
 -- --------------------------------------------------------
 

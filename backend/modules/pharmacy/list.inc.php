@@ -1,14 +1,24 @@
+
+
+	
+	
+
 	<h3 class="headline m-top-md">
-		Listing Pharmacies: 
+		<div class="float-left">Listing Pharmacies: </div>
+		<div class="float-right"><button type="button" class="btn btn-primary btn-sm" id="success-notification">Regular</button><a href="pharmacy/add" class="btn btn-primary btn-sm">New Pharmacy</a></div>
+		<div class="clear"></div>
+
 		<span class="line"></span>
 	</h3>
+	
+	<?php check_for_notifications(); ?>
 
-	<?php	$results = $db->select("pharmacy"); ?>
+	<?php	$results = $db->get("pharmacy"); ?>
 
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
 			<?php if($results): ?>
-				<table class="table table-striped" id="dataTable">
+				<table style="font-size: 12px;" class="table table-striped" id="dataTable">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -22,15 +32,16 @@
 						<?php
 							$i=0;
 							foreach($results as $res):
-								$city = $db->select("city", "id = ".$res->city);
+								$db->where ('id', $res['city']);
+								$city = $db->getOne("city");
 								$i++;
 						?>					
 						<tr>
 							<td><?= $i; ?></td>
-							<td><?= $res->name; ?> <?= $res->lastname; ?></td>
-							<td><?= $city; ?></td>
-							<td><?= $res->address; ?></td>
-							<td><?= $res->phone_number; ?></td>
+							<td><?= $res['name']; ?> <?= $res['lastname']; ?></td>
+							<td><?= $city['city']; ?></td>
+							<td><?= $res['address']; ?></td>
+							<td><?= $res['phone_number']; ?></td>
 						</tr>
 						<?php endforeach ?>
 					</tbody>

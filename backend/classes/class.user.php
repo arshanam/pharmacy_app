@@ -4,23 +4,21 @@
 
 		public function __construct()
 		{
-			$this->db = new db("mysql:host=".DBHOST.";dbname=".DBNAME.";charset=utf8", DBUSER, DBPASS);
+			$this->db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
 		}
 
 		public function check_login($username, $password){
 			
 			$password = md5($password);
+			
+			$this->db->where ('username', $username);
+			$this->db->where ('password', $password);
 
-			$bind = array(
-			    ":username" => "$username",
-			    ":password" => "$password"
-			);
-
-			$results = $this->db->select("users", "username = :username AND password = :password", $bind);
-
+			$results = $this->db->getOne("users");
+			
 			if ($results) {
 				$_SESSION['login'] = true;
-				$_SESSION['user_logged_in_name']=$results[0][name]." ".$results[0][lastname];
+				$_SESSION['user_logged_in_name']=$results['name']." ".$results['lastname'];
 				return true;
 			}else{
 				return false;
@@ -29,7 +27,8 @@
 		}
 
 		public function get_session(){
-			return $_SESSION['login'];
+			isset($_SESSION['login']) ? $login_return=true : $login_return=false;
+			return $login_return;
 		}
 
 

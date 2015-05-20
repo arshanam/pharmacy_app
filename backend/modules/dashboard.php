@@ -2,7 +2,14 @@
 			<div class="main-header clearfix">
 				<div class="page-title">
 					<h3 class="no-margin">Dashboard</h3>
-					<span>Welcome back Mr.John Doe</span>
+					<span>Welcome back 
+					<?php
+						$user = $db->get("users");
+						foreach($user as $res):
+							echo $res['name'];
+						endforeach
+					?>
+					</span>
 				</div><!-- /page-title -->
 				
 				<ul class="page-stats">

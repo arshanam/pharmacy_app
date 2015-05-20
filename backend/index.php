@@ -1,47 +1,22 @@
 <div style="background-color: #ffffff; color: red; margin-left: 300px;">
 
 <?php 
-
-/*
-	#remove the directory path we don't want
-  $request  = str_replace("/pharmacy_app/backend/", "", $_SERVER['REQUEST_URI']);
  
-  #split the path by '/'
-  $params     = split("/", $request);
-  print_r($params);
-  echo"<br />";
-  #keeps users from requesting any file they want
-  $safe_pages = array("pharmacy", "add", "list");
-  
-  echo $params[0]."<br />";
-  echo $params[1]."<br />";
-
-  if(in_array($params[0], $safe_pages) && in_array($params[1], $safe_pages)) {
-    //include($params[0].".php");
-    echo ($params[0].'/'.$params[1].'.inc.php');
-    include ($params[0].'/'.$params[1].'.inc.php');
-  } else {
-    echo ("404.php");
-  }
-*/
-
-  
 	error_reporting(E_ALL);
-	//session_start();
+	session_start();
 	require_once 'classes/class.mysqli.php';
 	include_once 'includes/required.php';
 	include_once 'classes/class.user.php';
-	/*
+	
 	$user = new User();
 	if (!$user->get_session()){
 	   header("location:login.php");
+
 	}
 	if (isset($_GET['q']) == 'logout'){
 	    $user->user_logout();
 	    header("location:login.php");
 	}
-
-*/
 ?>
 </div>
 <!DOCTYPE html>
@@ -262,7 +237,7 @@
 				</li>
 				<li class="profile dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-						<strong><?= $_SESSION['user_logged_in_name']; ?></strong>
+						<strong><?php isset($_SESSION['user_logged_in_name']) ? $name=$_SESSION['user_logged_in_name'] : $name='No Name'; echo $name; ?></strong>
 						<span><i class="fa fa-chevron-down"></i></span>
 					</a>
 					<ul class="dropdown-menu">
