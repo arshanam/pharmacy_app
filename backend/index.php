@@ -10,12 +10,12 @@
 	
 	$user = new User();
 	if (!$user->get_session()){
-	   header("location:login.php");
+	   header("location:".BASEURL."login.php");
 
 	}
 	if (isset($_GET['q']) == 'logout'){
 	    $user->user_logout();
-	    header("location:login.php");
+	    header("location:".BASEURL."login.php");
 	}
 ?>
 </div>

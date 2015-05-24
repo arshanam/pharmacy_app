@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On 
-	RewriteRule ^$ index.php?page=login
+	#RewriteRule ^$ index.php?page=login
 	RewriteRule ^([a-zA-Z0-9]+)$ index.php?page=$1
 	RewriteRule ^([a-zA-Z0-9]+)/$ index.php?page=$1
 	RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9]+)$ index.php?module=$1&action=$2

@@ -1,8 +1,3 @@
-
-
-	
-	
-
 	<h3 class="headline m-top-md">
 		<div class="float-left">Listing Pharmacies: </div>
 		<div class="float-right"><button type="button" class="btn btn-primary btn-sm" id="success-notification">Regular</button><a href="pharmacy/add" class="btn btn-primary btn-sm">New Pharmacy</a></div>
