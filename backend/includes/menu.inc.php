@@ -12,7 +12,9 @@
 							</a>
 						</li>
 						
+
 						<!-- PHARMACIES -->
+						<!--
 						<li class="openable open">
 							<a href="#">
 								<span class="menu-icon">
@@ -26,7 +28,25 @@
 								<li><a href="pharmacy/add"><span class="submenu-label">Add Pharmacy</span></a></li>
 							</ul>
 						</li>
+						-->
 						<!-- /PHARMACIES -->
+
+						<!-- Customers -->
+						<li class="openable open">
+							<a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-list fa-lg"></i> 
+								</span>
+								<span class="text">Customers</span>
+								<span class="menu-hover"></span>
+							</a>  
+							<ul class="submenu">
+								<li><a href="customer/list"><span class="submenu-label">List Customers</span></a></li>
+								<li><a href="customer/add"><span class="submenu-label">Add Customer</span></a></li>
+							</ul>
+						</li>
+						<!-- /Customers -->
+
 
 						<!-- Companies -->
 						<li class="openable open">

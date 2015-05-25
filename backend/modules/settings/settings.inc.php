@@ -1,26 +1,32 @@
 
 <h3 class="headline m-top-md">
-    Add a new pharmacy:
+    Settings:
     <span class="line"></span>
 </h3>
 
-<form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="pharmacy/submit" method="POST">
-
-    <div class="form-group">
-        <label for="name" class="col-lg-2 control-label">Name:</label>
+<form id="formToggleLine" class="form-horizontal no-margin form-border"  enctype='multipart/form-data' name="" action="settings/uploadCustomers" method="POST">
+  <div class="panel-body">
+    <fieldset class="form-horizontal form-border">
+      <div class="form-group">
+        <label class="control-label col-lg-2">Upload Customers File:</label>
         <div class="col-lg-10">
-            <input class="form-control" id="name" name="name" type="text">
-        </div>
+          <div class="upload-file">
+            <input type="file" id="upload-demo" name="customers_file" class="upload-demo">
+            <label data-title="Select file" for="upload-demo">
+                <span data-title="No file selected..."></span>
+            </label>
+          </div>
+        </div><!-- /.col -->
+      </div><!-- /form-group -->
+
+    </fieldset>         
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label"></label>
+    <div class="col-lg-10">
+        <button type="submit" class="btn btn-success btn-sm">Upload</button>
     </div>
-
-
-
-    <div class="form-group">
-        <label class="col-lg-2 control-label"></label>
-        <div class="col-lg-10">
-            <button type="submit" class="btn btn-success btn-sm">Submit</button>
-        </div>
-    </div>
+  </div>
 
 </form>
 
