@@ -25,7 +25,8 @@
                             <th>Group Name</th>
 							<th>Region</th>
 							<th>Address</th>
-							<th>Phone</th>
+							<th>Phone 1</th>
+                            <th>Phone 2</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -49,6 +50,7 @@
 							<td><?= $region['title']; ?></td>
 							<td><?= $res['address']; ?></td>
 							<td><?= $res['phone1']; ?></td>
+							<td><?= $res['phone2']; ?></td>
 						</tr>
 						<?php endforeach ?>
 					</tbody>
