@@ -25,6 +25,7 @@
                             <th>Group Name</th>
 							<th>Region</th>
 							<th>Address</th>
+                            <th>City</th>
 							<th>Phone 1</th>
                             <th>Phone 2</th>
 						</tr>
@@ -49,6 +50,7 @@
                             <td><?= $group['group_name']; ?></td>
 							<td><?= $region['title']; ?></td>
 							<td><?= $res['address']; ?></td>
+							<td><?= $res['city']; ?></td>
 							<td><?= $res['phone1']; ?></td>
 							<td><?= $res['phone2']; ?></td>
 						</tr>
