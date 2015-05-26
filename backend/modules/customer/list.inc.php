@@ -5,12 +5,10 @@
 
 		<span class="line"></span>
 	</h3>
-    <?php
-        $db2 = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
-    ?>
+
 	<?php //check_for_notifications(); ?>
 
-	<?php $results = $db->get("customer"); ?>
+	<?php $results = $db->get("customer","100"); ?>
 
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
@@ -37,8 +35,8 @@
 								$db->where('id', $res['region']);
 								$region = $db->getOne("region");
 
-                                $db2->where('group_code', $res['group_code']);
-                                $group = $db2->getOne("groups");
+                                $db->where('group_code', $res['group_code']);
+                                $group = $db->getOne("groups");
 
                                 $i++;
 						?>					
@@ -61,7 +59,7 @@
 				<div class="row">
 					<div class="col-md-12">	
 						<div class="alert alert-warning">
-							<strong>Warning!</strong> No pharmacies found!
+							<strong>Warning!</strong> No customers found!
 						</div>
 					</div>
 			<?php endif ?>
