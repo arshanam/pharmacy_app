@@ -6299,3 +6299,10 @@ button.close {
 .clear{
 	clear: both;
 }
+
+.table-font-size{
+    font-size: 12px;
+}
+.form-group {
+
+}

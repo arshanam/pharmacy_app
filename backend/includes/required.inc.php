@@ -32,28 +32,24 @@ function display_all($var){
 	return $return;
 }
 
-function check_for_notifications(){
-	//if(isset($_SESSION['result']) && $_SESSION['result']!=''){ ?>
+function check_for_notifications($msg, $res){
+	if(isset($_SESSION['result']) && $_SESSION['result']!=''): ?>
 		<script type="text/javascript">
 			$(function()	{
 				//Gritter notification
 					$.gritter.add({
-						title: '<i class="fa fa-check-circle"></i> This is a success notification',
-						text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#">magnis dis parturient</a> montes, nascetur ridiculus mus.',
+						title: '<i class="fa fa-check-circle"></i> <?=$msg;?>',
+						//text: 'This will fade out after a certain amount of time. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#">magnis dis parturient</a> montes, nascetur ridiculus mus.',
 						sticky: false,
 						time: '',
-						class_name: 'gritter-success'
+						class_name: '<?=$res;?>'
 					});
 					return false;
 			});
 	</script>
-<!--
-		<div class="alert alert-<?=$_SESSION['result']['res']?>">
-			<strong><?=$_SESSION['result']['msg']?></strong>
-		</div>-->
 <?php
-		//unset($_SESSION['result']);
-	//}
+		unset($_SESSION['result']);
+	endif;
 }
 
 function get_notification(){

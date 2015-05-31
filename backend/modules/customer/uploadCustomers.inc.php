@@ -56,39 +56,40 @@ if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
 		$block = trim($allDataInSheet[$i]["R"]);
 	  
 	  $insert = array(
-	    "card_code" => $card_code,
-	    "card_name" => $card_name,
-	    "group_code" => $group_code,
-	    "region" => $region,
-	    "address" => $address,
-	    "zip_code" => $zip_code,
-	    "city" => $city,
-	    "mail_address" => $mail_address,
-	    "mail_zip_code" => $mail_zip_code,
-	    "phone1" => $phone1,
-	    "phone2" => $phone2,
-	    "cellular" => $cellular,
-	    "fax" => $fax,
-	    "contact_person" => $contact_person,
-	    "country" => $country,
-	    "country_code" => $country_code,
-	    "email" => $email,
-	    "block" => $block,
-	    "status" => 1		    
+        "card_code" => $card_code,
+        "card_name" => $card_name,
+        "group_code" => $group_code,
+        "region" => $region,
+        "address" => $address,
+        "zip_code" => $zip_code,
+        "city" => $city,
+        "mail_address" => $mail_address,
+        "mail_zip_code" => $mail_zip_code,
+        "phone1" => $phone1,
+        "phone2" => $phone2,
+        "cellular" => $cellular,
+        "fax" => $fax,
+        "contact_person" => $contact_person,
+        "country" => $country,
+        "country_code" => $country_code,
+        "email" => $email,
+        "block" => $block,
+        "status" => 1,
+        "date_created" => date("Y-m-d H:i:s")
 		);
 			
 		$res = $db->insert("customer", $insert);
-
+/*
 		if ($res)
 	  	echo 'created:' . $res;
 		else
 	  	echo 'insert failed: ' . $db->getLastError();
-
-			/*
-			$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Pharmacy "'.($_POST['title']!='' ? $_POST['title'] : $_POST['name']).'" successfully added') : $_SESSION['msg']=array('res'=>'danger','msg'=>'Not added! Please try again!');
-			echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'pharmacy/list">';
-			*/
+*/
+			
 		}
+		$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Customer List was successfully added!') : $_SESSION['msg']=array('res'=>'danger','msg'=>'There was an error! Please try again!');
+		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'pharmacy/list">';
+
 		unlink($storagename);
 	endif;
 	
