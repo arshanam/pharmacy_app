@@ -3,7 +3,8 @@
 //database connection
 define("DBUSER", "root");
 define("DBNAME", "pharmacy_app");
-define("DBPASS", "");
+define("DBPASS", "athlonamd");
+//define("DBPASS", "");
 define("DBHOST", "localhost");
 define("BASEURL", "http://localhost/pharmacy_app/backend/");
 

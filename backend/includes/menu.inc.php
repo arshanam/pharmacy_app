@@ -38,14 +38,14 @@
 
 						<!-- Customers -->
 
-						<li class="openable open">
-							<a href="#">
+			<li class="openable open">
+				<a href="#">
                 <span class="menu-icon"><i class="fa fa-user fa-lg">&nbsp;</i></span>
 								<span class="text">Customers</span>
                 <span class="badge badge-danger m-left-xs"><?=$customer_count;?></span>
                 <span class="menu-hover"></span>
-							</a>  
-							<ul class="submenu">
+				</a>  
+				<ul class="submenu">
                 <li>
                   <a href="customer/search">
                     <span class="menu-icon"><i class="fa fa-search fa-lg"> &nbsp;</i></span>
@@ -100,9 +100,32 @@
                 </li>
 							</ul>
 						</li>
-
-						<!-- /Companies -->
+						<!-- /Products -->
 						
+
+
+						<!-- Seetings -->
+						<li class="openable open">
+							<a href="#">
+								<span class="menu-icon">
+									<i class="fa fa-cogs fa-lg"></i> 
+								</span>
+								<span class="text">Settings</span>
+								<span class="menu-hover"></span>
+							</a>
+							<ul class="submenu">
+                <li>
+                  <a href="settings/region">
+                    <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+                    <span class="submenu-label">Customer's Region's</span>
+                  </a>
+                </li>
+							</ul>
+						</li>
+						<!-- /Settings -->
+
+
+
 						<li class="openable">
 							<a href="#">
 								<span class="menu-icon">
