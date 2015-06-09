@@ -101,8 +101,6 @@
 							</ul>
 						</li>
 						<!-- /Products -->
-						
-
 
 						<!-- Seetings -->
 						<li class="openable open">
@@ -115,16 +113,20 @@
 							</a>
 							<ul class="submenu">
                 <li>
+                  <a href="settings/groups">
+                    <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+                    <span class="submenu-label">Customer Groups</span>
+                  </a>
+                </li>
+                <li>
                   <a href="settings/region">
                     <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">Customer's Region's</span>
+                    <span class="submenu-label">Customer Regions</span>
                   </a>
                 </li>
 							</ul>
 						</li>
 						<!-- /Settings -->
-
-
 
 						<li class="openable">
 							<a href="#">

@@ -7,9 +7,11 @@
 	require_once 'classes/class.mysqli.php';
 	require_once 'includes/required.inc.php';
 	require_once 'classes/class.encryption.php';
+	require_once 'classes/class.log.php';
 	require_once 'classes/class.user.php';
 	include_once('classes/class.form.php');
   $form = new Form();
+  $log = new LogActivity();
 
 	 
 	$user = new User();

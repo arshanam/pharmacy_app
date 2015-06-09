@@ -1,48 +1,85 @@
-
-<h3 class="headline m-top-md">
-		<div>Regions: </div>
-		<span class="line"></span>
-</h3>
-
-<?php
-  if(isset($_SESSION['result']) && $_SESSION['result']!=''):
-    check_for_notifications($_SESSION['result']['msg'],$_SESSION['result']['res']);
-  endif;
-?>
+<?php isset($_GET['id']) ? $edit=true : $edit=false; ?>
 
 <?php
 
-  $db->orderBy('id','ASC');
-  $results = $db->get("region"); ?>
+	if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
+		
+		$insert = array(
+		    "title" => post_text_variable($_POST['title']),
+		);
 
-	<div class="panel panel-default table-responsive">
-		<div class="padding-md clearfix">
-			<?php if($results): ?>
-				<table class="table table-font-size" style="max-width: 400px;">
-					<thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Edit</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php
-							$i=0;
-							foreach($results as $res):
-              $i++;
-						?>					
-						<tr>
-							<td><?= $i; ?></td>
-							<td><?= $res['title']; ?></td>
-              <td>
-                <a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a>
-              </td>
-						</tr>
-						<?php endforeach ?>
-					</tbody>
-				</table>
-			<?php endif; ?>
+    if(isset($_GET['id'])){
+      $db->where ('id', $_GET['id']);
+      $res = $db->update ('region', $insert);
+      $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'<b>'.$_POST['title'].'</b> Successfully Updated!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
+    }else{
+      $res = $db->insert("region", $insert);
+      $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'<b>'.$_POST['title'].'</b> Successfully Added!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
+    }
+		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'settings/region">';
+
+  else:
+
+	  if(isset($_SESSION['result']) && $_SESSION['result']!=''):
+	    check_for_notifications($_SESSION['result']['msg'],$_SESSION['result']['res']);
+	  endif;
+
+	  if($edit):
+	    $db->where ("id", $_GET['id']);
+	    $region = $db->getOne("region");
+	  endif;
+
+	  $db->orderBy('id','ASC');
+	  $results = $db->get("region"); ?>
+
+		<div class="panel panel-default table-responsive">
+			<div class="padding-md clearfix">
+				<?php if($results): ?>
+					<div class=" col-lg-4 col-md-4 col-sm-12">
+						<h3 class="headline m-top-md">
+								<div>Regions: </div>
+								<span class="line"></span>
+						</h3>
+						<table class="table table-font-size float-left">
+							<thead>
+		            <tr>
+		              <th>#</th>
+		              <th>Title</th>
+		              <th>Edit</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									$i=0;
+									foreach($results as $res):
+		              $i++;
+								?>					
+								<tr>
+									<td><?= $i; ?></td>
+									<td><?= $res['title']; ?></td>
+		              <td>
+		                <a href="settings/region/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a>
+		              </td>
+								</tr>
+								<?php endforeach ?>
+							</tbody>
+						</table>
+					</div>
+					<div class="col-lg-8 col-md-8 col-sm-12">
+						<h3 class="headline m-top-md">
+								<?= $edit ? '<div class="float-left">Edit:</div><div class="float-right"><a href="settings/region" class="btn btn-primary btn-sm">Add New</a></div>' : '<div>Add New: </div>'; ?>
+								<div class="clear"></div>
+								<span class="line"></span>
+						</h3>
+						<form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="settings/region<?= isset($_GET['id']) ? '/'.$_GET['id'] : '';?>" method="POST">
+							<?= $form->text_field('title', 'Region',$edit ? $region['title'] : ''); ?>
+							<?= $form->submit_button('Submit') ?>
+						</form>
+					</div>
+				<?php
+					endif;
+				endif;
+				?>
 		</div><!-- /.padding-md -->
 	</div><!-- /panel -->
 
