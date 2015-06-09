@@ -9,8 +9,6 @@
 
 		public function check_login($username, $password){
 			
-			//$password = md5($password);
-			
 			$encryption = new Encryption();
 			$password = $encryption->encode($password);
 			

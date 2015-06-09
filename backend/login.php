@@ -15,7 +15,9 @@ if ($user->get_session()){
 }
 
 if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'){   
+
     $login = $user->check_login(post_text_variable($_POST['username']), post_text_variable($_POST['password']));
+    
     if ($login) {
         // Registration Success
    		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'">';

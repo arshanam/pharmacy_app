@@ -19,7 +19,9 @@ class Encryption {
     }
 
     public  function encode($value){ 
-        if(!$value){return false;}
+        if(!$value){
+            return false;
+        }
         $text = $value;
         $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
         $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
