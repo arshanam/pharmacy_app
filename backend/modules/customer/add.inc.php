@@ -9,26 +9,17 @@
   if($edit):
     $db->where ("id", $_GET['id']);
     $customer = $db->getOne ("customer");
-    //print_r($customer);
   endif;
 ?>
 
 <form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="customer/submit<?= isset($_GET['id']) ? '/'.$_GET['id'] : '';?>" method="POST">
 
-    <div class="form-group">
-        <label for="card_code" class="col-lg-2 control-label">Card Code:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="card_code" name="card_code" type="text" <?= $edit ? 'value="'.$customer['card_code'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-		    <label for="card_name" class="col-lg-2 control-label">Card Name:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="card_name" name="card_name" type="text" <?= $edit ? 'value="'.$customer['card_name'].'"' : 'value=""' ?>>
-        </div>
-	  </div>
+<?php
+    $form->text_field('card_code', 'Card Code', $edit ? $customer['card_code'] : '');
+    $form->text_field('card_name', 'Card Name', $edit ? $customer['card_name'] : '');
+    $form->text_field('address', 'Address', $edit ? $customer['address'] : '');
+    $form->text_field('zip_code', 'Zip Code', $edit ? $customer['zip_code'] : '');
+?>
 
     <div class="form-group">
         <label for="group_code" class="col-lg-2 control-label">Group:</label>
@@ -61,112 +52,23 @@
         <div class="col-lg-5"></div>
     </div><!-- /form-group -->
 
-    <div class="form-group">
-        <label for="address" class="col-lg-2 control-label">Address:</label>
-        <div class="col-lg-10">
-            <textarea class="form-control" name="address" id="address" rows="3"><?= $edit ? $customer['address'] : '' ?></textarea>
-        </div><!-- /.col -->
-    </div><!-- /form-group -->
+    
+    <?php
+        $form->text_field('city', 'City', $edit ? $customer['city'] : '');
+        $form->text_field('mail_address', 'Mail Address', $edit ? $customer['mail_address'] : '');
+        $form->text_field('mail_zip_code', 'Mail Zip Code', $edit ? $customer['mail_zip_code'] : '');
+        $form->text_field('phone1', 'Phone', $edit ? $customer['phone1'] : '');
+        $form->text_field('phone2', 'Phone 2', $edit ? $customer['phone2'] : '');
+        $form->text_field('cellular', 'Cellular', $edit ? $customer['cellular'] : '');
+        $form->text_field('fax', 'Fax', $edit ? $customer['fax'] : '');
+        $form->text_field('contact_person', 'Contact Person', $edit ? $customer['contact_person'] : '');
+        $form->text_field('country', 'Country', $edit ? $customer['country'] : '');
+        $form->text_field('country_code', 'Country Code', $edit ? $customer['country_code'] : '');
+        $form->text_field('email', 'Email', $edit ? $customer['email'] : '');
+        $form->text_field('block', 'Block', $edit ? $customer['block'] : '');
 
-    <div class="form-group">
-        <label for="zip_code" class="col-lg-2 control-label">Zip Code:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="zip_code" name="zip_code" type="text" <?= $edit ? 'value="'.$customer['zip_code'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="city" class="col-lg-2 control-label">City:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="city" name="city" type="text" <?= $edit ? 'value="'.$customer['city'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="mail_address" class="col-lg-2 control-label">Mail Address:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="mail_address" name="mail_address" type="text" <?= $edit ? 'value="'.$customer['mail_address'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="mail_zip_code" class="col-lg-2 control-label">Mail Zip Code:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="mail_zip_code" name="mail_zip_code" type="text" <?= $edit ? 'value="'.$customer['mail_zip_code'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="phone1" class="col-lg-2 control-label">Phone 1:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="phone1" name="phone1" type="text" <?= $edit ? 'value="'.$customer['phone1'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="phone2" class="col-lg-2 control-label">Phone 2:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="phone2" name="phone2" type="text" <?= $edit ? 'value="'.$customer['phone2'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="cellular" class="col-lg-2 control-label">Cellular:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="cellular" name="cellular" type="text" <?= $edit ? 'value="'.$customer['cellular'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="fax" class="col-lg-2 control-label">Fax:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="fax" name="fax" type="text" <?= $edit ? 'value="'.$customer['fax'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="contact_person" class="col-lg-2 control-label">Contact Person:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="contact_person" name="contact_person" type="text" <?= $edit ? 'value="'.$customer['contact_person'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="country" class="col-lg-2 control-label">Country:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="country" name="country" type="text" <?= $edit ? 'value="'.$customer['country'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="country_code" class="col-lg-2 control-label">Country Code:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="country_code" name="country_code" type="text" <?= $edit ? 'value="'.$customer['country_code'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="email" class="col-lg-2 control-label">Email:</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="email" name="email" type="text" <?= $edit ? 'value="'.$customer['email'].'"' : 'value=""' ?>>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="block" class="col-lg-2 control-label">Block:</label>
-        <div class="col-lg-10">
-          <textarea class="form-control" name="block" id="block" rows="3"><?= $edit ? $customer['block'] : '' ?></textarea>
-        </div>
-    </div>
-
-
-	<div class="form-group">
-		<label class="col-lg-2 control-label"></label>
-		<div class="col-lg-10">
-			<button type="submit" class="btn btn-success btn-sm">Submit</button>
-		</div>
-	</div>
-
+        $form->submit_button('Submit');
+    ?>
 </form>
 
 <!-- Script Files -->

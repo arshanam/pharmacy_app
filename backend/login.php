@@ -5,6 +5,7 @@ session_start();
 
 include_once 'classes/class.mysqli.php';
 include_once 'includes/required.inc.php';
+require_once 'classes/class.encryption.php';
 include_once 'classes/class.user.php';
 
 $user = new User();

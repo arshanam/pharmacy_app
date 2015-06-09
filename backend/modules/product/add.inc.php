@@ -1,76 +1,57 @@
+<?php isset($_GET['id']) ? $edit=true : $edit=false; ?>
 
 <h3 class="headline m-top-md">
-	Add a new pharmacy: 
+	<?= $edit ? 'Edit product:' : 'Add a new product: '; ?>
 	<span class="line"></span>
 </h3>
 
-<form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="pharmacy/submit" method="POST">
+<?php
+  if($edit):
+    $db->where ("id", $_GET['id']);
+    $customer = $db->getOne ("customer");
+  endif;
+?>
 
-	<div class="form-group">
-		<label for="name" class="col-lg-2 control-label">Name:</label>
-		<div class="col-lg-10">
-			<input class="form-control" id="name" name="name" type="text">
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<label for="lastname" class="col-lg-2 control-label">Last Name:</label>
-		<div class="col-lg-10">
-			<input class="form-control" id="lastname" name="lastname" type="text">
-		</div>
-	</div>
+<form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="customer/submit<?= isset($_GET['id']) ? '/'.$_GET['id'] : '';?>" method="POST">
 
-	<div class="form-group">
-		<label for="title" class="col-lg-2 control-label">Title:</label>
-		<div class="col-lg-10">
-			<input class="form-control" id="title" name="title" type="text">
-		</div>
-	</div>
+<?php
+    $form->text_field('card_code', 'Card Code', $edit ? $customer['card_code'] : '');
+    $form->text_field('card_name', 'Card Name', $edit ? $customer['card_name'] : '');
+    $form->text_field('address', 'Address', $edit ? $customer['address'] : '');
+    $form->text_field('zip_code', 'Zip Code', $edit ? $customer['zip_code'] : '');
+?>
 
-	<div class="form-group">
-		<label for="address" class="col-lg-2 control-label">Address:</label>
-		<div class="col-lg-10">
-			<textarea class="form-control" name="address" id="address" rows="3"></textarea>
-		</div><!-- /.col -->
-	</div><!-- /form-group -->
-	
-	<div class="form-group">
-		<label class="col-lg-2 control-label" for="city">City:</label>
-		<div class="col-lg-5">
-			<select id="city" name="city" class="form-control">
-				<option value="">Please Select a city: </option>
-				<?php
-					$cities = $db->get("city");
-					foreach($cities as $city):
-						echo'<option value="'.$city['id'].'">'.$city['city'].'</option>';
-				?>
-					<?php endforeach ?>
-			</select>
-		</div>
-		<div class="col-lg-5"></div>
-	</div><!-- /form-group -->
+    <div class="form-group">
+        <label for="group_code" class="col-lg-2 control-label">Group:</label>
+        <div class="col-lg-6">
+          <select id="group_code" name="group_code" class="form-control">
+            <option value="">Please Select a group: </option>
+            <?php
+                $groups = $db->get("groups");
+                foreach($groups as $group):
+                  $group['group_code']==$customer['group_code'] ? $selected='selected' : $selected='';
+                  echo'<option value="'.$group['group_code'].'" '.$selected.'>'.$group['group_name'].'</option>';
+                endforeach ?>
+          </select>
+        </div>
+    </div>
+    
+    <?php
+        $form->text_field('city', 'City', $edit ? $customer['city'] : '');
+        $form->text_field('mail_address', 'Mail Address', $edit ? $customer['mail_address'] : '');
+        $form->text_field('mail_zip_code', 'Mail Zip Code', $edit ? $customer['mail_zip_code'] : '');
+        $form->text_field('phone1', 'Phone', $edit ? $customer['phone1'] : '');
+        $form->text_field('phone2', 'Phone 2', $edit ? $customer['phone2'] : '');
+        $form->text_field('cellular', 'Cellular', $edit ? $customer['cellular'] : '');
+        $form->text_field('fax', 'Fax', $edit ? $customer['fax'] : '');
+        $form->text_field('contact_person', 'Contact Person', $edit ? $customer['contact_person'] : '');
+        $form->text_field('country', 'Country', $edit ? $customer['country'] : '');
+        $form->text_field('country_code', 'Country Code', $edit ? $customer['country_code'] : '');
+        $form->text_field('email', 'Email', $edit ? $customer['email'] : '');
+        $form->text_field('block', 'Block', $edit ? $customer['block'] : '');
 
-	<div class="form-group">
-		<label for="phone_number" class="col-lg-2 control-label">Phone Number:</label>
-		<div class="col-lg-10">
-			<input class="form-control" id="phone_number" name="phone_number" type="text">
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label for="alternative_phone_number" class="col-lg-2 control-label">Alternative Phone Number:</label>
-		<div class="col-lg-10">
-			<input class="form-control" id="alternative_phone_number" name="alternative_phone_number" type="text">
-		</div>
-	</div>
-
-	<div class="form-group">
-		<label class="col-lg-2 control-label"></label>
-		<div class="col-lg-10">
-			<button type="submit" class="btn btn-success btn-sm">Submit</button>
-		</div>
-	</div>
-
+        $form->submit_button('Submit');
+    ?>
 </form>
 
 <!-- Script Files -->

@@ -9,11 +9,13 @@
 
 		public function check_login($username, $password){
 			
-			$password = md5($password);
+			//$password = md5($password);
+			
+			$encryption = new Encryption();
+			$password = $encryption->encode($password);
 			
 			$this->db->where ('username', $username);
 			$this->db->where ('password', $password);
-
 			$results = $this->db->getOne("users");
 			
 			if ($results) {

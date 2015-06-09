@@ -5,9 +5,13 @@
 	error_reporting(E_ALL);
 	session_start();
 	require_once 'classes/class.mysqli.php';
-	include_once 'includes/required.inc.php';
-	include_once 'classes/class.user.php';
-	
+	require_once 'includes/required.inc.php';
+	require_once 'classes/class.encryption.php';
+	require_once 'classes/class.user.php';
+	include_once('classes/class.form.php');
+  $form = new Form();
+
+	 
 	$user = new User();
 	if (!$user->get_session()){
 	   header("location:".BASEURL."login.php");
