@@ -3,8 +3,7 @@
 //database connection
 define("DBUSER", "root");
 define("DBNAME", "pharmacy_app");
-//define("DBPASS", "athlonamd");
-define("DBPASS", "");
+getOS()=='Ubuntu' ? define("DBPASS", "athlonamd") : define("DBPASS", "");
 define("DBHOST", "localhost");
 define("BASEURL", "http://localhost/pharmacy_app/backend/");
 
@@ -16,22 +15,15 @@ define("DBPASS", "and123ros");
 define("BASEURL", "http://a92619.sb1.dev.codeanywhere.net/pharmacy_app/");
 */
 
-//$db = new db("mysql:host=".DBHOST.";dbname=".DBNAME.";charset=utf8", DBUSER, DBPASS);
-//$db->setErrorCallbackFunction("echo");
-
-if (!function_exists('mysqli_init') && !extension_loaded('mysqli'))
+//If the server is not supporting mysqli, echo a message
+if (!function_exists('mysqli_init') && !extension_loaded('mysqli')):
 	echo 'We don\'t have mysqli!!!';
+	exit;
+endif;
 
+//Database Connection	
 $db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
 
-function display_all($var){
-	$return = '';
-	$return .= '<pre>';
-	$return .= $var;
-	$return .= '</pre>';
-
-	return $return;
-}
 
 function check_for_notifications($msg, $res){
 	if(isset($_SESSION['result']) && $_SESSION['result']!=''): ?>
@@ -51,32 +43,6 @@ function check_for_notifications($msg, $res){
 <?php
 		unset($_SESSION['result']);
 	endif;
-}
-
-function get_notification(){
-	
-	switch ($_REQUEST['msg']) {
-		
-		case 'customer_add':
-			echo'<div class="n_ok"><p>Customer <b>'.$_REQUEST['customer'].'</b> Added!</p></div>';
-			break;
-		
-		case 'customer_edit':
-			echo'<div class="n_ok"><p>Customer <b>'.$_REQUEST['customer'].'</b> Updated!</p></div>';
-			break;
-
-		case 'customer_delete':
-			echo'<div class="n_ok"><p>Customer <b>'.$_REQUEST['customer'].'</b> Deleted!</p></div>';
-			break;
-
-		case 'error':
-			echo'<div class="n_error"><p>There was an error, please try again!</p></div>';
-			break;
-
-		default:
-			echo"";
-			break;
-	}
 }
 
 function post_text_variable($var){
@@ -111,33 +77,8 @@ function getMySQLSafe($value) {
 	if (get_magic_quotes_gpc()) $value = stripslashes($value);
     return @mysql_real_escape_string($value);
 }
+
 /******************************************/
-function SendForChild($id){
-	
-	if(strpos($id, '-') !== false){
-		$keep_old = $id;
-		$child_array = explode('-', $id);
-		$id = end($child_array);
-	}
-	else $keep_old = $id;
-	$sql = "SELECT id,title,parent,has_sub FROM menu WHERE parent='".$id."'";
-	$query = @mysql_query($sql);
-	$num = @mysql_num_rows($query);
-	if($num){
-		while($row = @mysql_fetch_array($query)){
-			$child_id = $row['id'];
-			$child_title = $row['title'];
-			$child_parent = $row['parent'];
-			$has_sub = $row['has_sub'];
-			$id = $keep_old;
-			@array_push($_SESSION['array_menu'], "$id-$child_id");
-			if($has_sub == 1){
-				SendForChild("$id-$child_id");
-			}
-		}
-		return $_SESSION['array_menu'];
-	}
-}
 
 function UploadFile($TempName,$FileFolder,$Sec,$replace,$file_id,$table){
 
@@ -328,6 +269,78 @@ function checkMenuItem(){
 		$current="";
 	}
 	return $current;
+}
+
+
+function getOS() { 
+    $user_agent=$_SERVER['HTTP_USER_AGENT'];
+    $os_platform    =   "Unknown OS Platform";
+    $os_array       =   array(
+                            '/windows nt 10/i'     =>  'Windows 10',
+                            '/windows nt 6.3/i'     =>  'Windows 8.1',
+                            '/windows nt 6.2/i'     =>  'Windows 8',
+                            '/windows nt 6.1/i'     =>  'Windows 7',
+                            '/windows nt 6.0/i'     =>  'Windows Vista',
+                            '/windows nt 5.2/i'     =>  'Windows Server 2003/XP x64',
+                            '/windows nt 5.1/i'     =>  'Windows XP',
+                            '/windows xp/i'         =>  'Windows XP',
+                            '/windows nt 5.0/i'     =>  'Windows 2000',
+                            '/windows me/i'         =>  'Windows ME',
+                            '/win98/i'              =>  'Windows 98',
+                            '/win95/i'              =>  'Windows 95',
+                            '/win16/i'              =>  'Windows 3.11',
+                            '/macintosh|mac os x/i' =>  'Mac OS X',
+                            '/mac_powerpc/i'        =>  'Mac OS 9',
+                            '/linux/i'              =>  'Linux',
+                            '/ubuntu/i'             =>  'Ubuntu',
+                            '/iphone/i'             =>  'iPhone',
+                            '/ipod/i'               =>  'iPod',
+                            '/ipad/i'               =>  'iPad',
+                            '/android/i'            =>  'Android',
+                            '/blackberry/i'         =>  'BlackBerry',
+                            '/webos/i'              =>  'Mobile'
+                        );
+
+    foreach ($os_array as $regex => $value) { 
+        if (preg_match($regex, $user_agent)) {
+            $os_platform    =   $value;
+        }
+    }   
+    return $os_platform;
+}
+
+
+function getBrowser() {
+    $user_agent=$_SERVER['HTTP_USER_AGENT'];
+    $browser        =   "Unknown Browser";
+    $browser_array  =   array(
+                            '/msie/i'       =>  'Internet Explorer',
+                            '/firefox/i'    =>  'Firefox',
+                            '/safari/i'     =>  'Safari',
+                            '/chrome/i'     =>  'Chrome',
+                            '/opera/i'      =>  'Opera',
+                            '/netscape/i'   =>  'Netscape',
+                            '/maxthon/i'    =>  'Maxthon',
+                            '/konqueror/i'  =>  'Konqueror',
+                            '/mobile/i'     =>  'Handheld Browser'
+                        );
+
+    foreach ($browser_array as $regex => $value) { 
+        if (preg_match($regex, $user_agent)) {
+            $browser    =   $value;
+        }
+    }
+    return $browser;
+}
+
+
+function display_all($var){
+	$return = '';
+	$return .= '<pre>';
+	$return .= $var;
+	$return .= '</pre>';
+
+	return $return;
 }
 
 
