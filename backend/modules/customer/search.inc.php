@@ -54,22 +54,7 @@
 
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
-			
-				<table class="table-font-size table table-striped" id="">
-					<thead>
-            <tr>
-              <th>#</th>
-              <th>Card</th>
-              <th>Group</th>
-              <th>Region</th>
-              <th>City</th>
-              <th>Phone 1</th>
-              <th>Edit</th>
-						</tr>
-					</thead>
-					<tbody class="customers_fetched">
-					</tbody>
-				</table>
+			<div class="customers_fetched"></div>
 		</div><!-- /.padding-md -->
 	</div><!-- /panel -->
 

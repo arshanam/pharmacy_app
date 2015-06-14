@@ -26,7 +26,7 @@ switch ($_POST['f']) {
 	case 'fetch_customers':
 		
 		if(isset($_POST['search_term']) && $_POST['search_term']!=null):
-			$db->where('card_code LIKE "%'.$_POST['search_term'].'%"');
+			$db->where('(card_code LIKE "%'.$_POST['search_term'].'%"');
 			$db->orWhere('card_name LIKE "%'.$_POST['search_term'].'%"');
 			$db->orWhere('address LIKE "%'.$_POST['search_term'].'%"');
 			$db->orWhere('city LIKE "%'.$_POST['search_term'].'%"');
@@ -36,9 +36,9 @@ switch ($_POST['f']) {
 			$db->orWhere('fax LIKE "%'.$_POST['search_term'].'%"');
 			$db->orWhere('contact_person LIKE "%'.$_POST['search_term'].'%"');
 			$db->orWhere('country LIKE "%'.$_POST['search_term'].'%"');
-			$db->orWhere('email LIKE "%'.$_POST['search_term'].'%"');
+			$db->orWhere('email LIKE "%'.$_POST['search_term'].'%")');
 		else:
-			$db->where('card_code LIKE "%%"');
+			$db->where('(card_code LIKE "%%"');
 			$db->orWhere('card_name LIKE "%%"');
 			$db->orWhere('address LIKE "%%"');
 			$db->orWhere('city LIKE "%%"');
@@ -48,49 +48,74 @@ switch ($_POST['f']) {
 			$db->orWhere('fax LIKE "%%"');
 			$db->orWhere('contact_person LIKE "%%"');
 			$db->orWhere('country LIKE "%%"');
-			$db->orWhere('email LIKE "%%"');
+			$db->orWhere('email LIKE "%%")');
 		endif;
 
 		if(isset($_POST['group_code']) && $_POST['group_code']!=null):
-			$db->where('group_code LIKE "%'.$_POST['group_code'].'%"');
+			$db->where('group_code="'.$_POST['group_code'].'"');
 		else:
 			$db->where('group_code LIKE "%%"');
 		endif;
 
 		if(isset($_POST['region']) && $_POST['region']!=null):
-			$db->where('region LIKE "%'.$_POST['region'].'%"');
+			$db->where('region="'.$_POST['region'].'"');
 		else:
 			$db->where('region LIKE "%%"');
 		endif;		
 
+		$results = $db->get("customer","200");
+		$db->echoQuery();
+		if($results):
+			?>
+			<table class="table-font-size table table-striped">
+				<thead>
+		      <tr>
+		        <th>#</th>
+		        <th>Card</th>
+		        <th>Group</th>
+		        <th>Region</th>
+		        <th>City</th>
+		        <th>Phone 1</th>
+		        <th>Edit</th>
+					</tr>
+				</thead>
+				<tbody>
 
-		$results = $db->get("customer","400");
-
-		$i=0;
-		foreach($results as $res):
-			$db->where('id', $res['region']);
-			$region = $db->getOne("region");
-
-      $db->where('group_code', $res['group_code']);
-      $group = $db->getOne("groups");
-
-      $i++;
-    ?>
-			<tr>
-				<td><?= $i; ?></td>
-				<td><?= $res['card_code']; ?> - <?= $res['card_name']; ?></td>
-	      <td><?= $res['group_code']; ?> - <?= $group['group_name']; ?></td>
-				<td><?= $region['title']; ?></td>
-				<td><?= $res['city']; ?></td>
-				<td><?= $res['phone1']; ?></td>
-	      <td>
-	        <a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a>
-	        
-	      </td>
-			</tr>
 			<?php
-			endforeach;
+			$i=0;
+			foreach($results as $res):
+				$db->where('id', $res['region']);
+				$region = $db->getOne("region");
 
+	      $db->where('group_code', $res['group_code']);
+	      $group = $db->getOne("groups");
+
+	      $i++;
+	    ?>
+					<tr>
+						<td><?= $i; ?></td>
+						<td><?= $res['card_code']; ?> - <?= $res['card_name']; ?></td>
+			      <td><?= $res['group_code']; ?> - <?= $group['group_name']; ?></td>
+						<td><?= $region['title']; ?></td>
+						<td><?= $res['city']; ?></td>
+						<td><?= $res['phone1']; ?></td>
+			      <td><a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
+					</tr>
+
+				<?php
+				endforeach;
+
+			else:
+				echo'<div class="alert alert-danger">
+							<strong>No Customers Found with these criterias!</strong> Change a few things up and try submitting again.
+						</div>';
+
+			endif;
+			?>
+
+				</tbody>
+			</table>
+		<?php
 		break;
 
 	default:

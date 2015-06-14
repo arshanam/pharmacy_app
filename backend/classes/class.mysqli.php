@@ -346,6 +346,12 @@ class MysqliDb
         return $res;
     }
 
+
+    public function echoQuery(){
+        echo'<pre>';
+        print_r($this->_lastQuery);
+        echo'</pre>';
+    }
     /**
      * A convenient SELECT * function to get one record.
      *
