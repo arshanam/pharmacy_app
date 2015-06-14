@@ -70,6 +70,12 @@
                     <span class="submenu-label"> Import Customers</span>
                   </a>
                 </li>
+                <!--<li>
+                  <a href="customer/exportCustomers">
+                    <span class="menu-icon"><i class="fa fa-cloud-download fa-lg"> &nbsp;</i></span>
+                    <span class="submenu-label"> Export Customers</span>
+                  </a>
+                </li>-->
 							</ul>
 						</li>
 						<!-- /Customers -->

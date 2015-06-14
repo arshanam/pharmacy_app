@@ -3,7 +3,7 @@
 		<div class="float-left">Listing Customers: </div>
     <div class="float-right"><a href="customer/add" class="btn btn-primary btn-sm">New Customer</a></div>
     <div class="clear"></div>
-
+ 
 		<span class="line"></span>
 </h3>
 
@@ -14,9 +14,11 @@
 ?>
 
 <?php
-      $db->orderBy('id');
-      $results = $db->get("customer","100"); ?>
+  $db->orderBy('id');
+  $results = $db->get("customer","100"); ?>
 
+  <pre><?php print_r($db); ?></pre>
+  
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
 			<?php if($results): ?>

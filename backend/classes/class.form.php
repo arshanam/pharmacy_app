@@ -6,7 +6,7 @@
 			$this->db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
 		}
 
-		public function text_field($name, $title, $value){			
+		public function text_field($name, $title, $value){
 			$return='';
 			$return.='<div class="form-group">
 								<label for="'.$name.'" class="col-lg-2 control-label">'.$title.':</label>

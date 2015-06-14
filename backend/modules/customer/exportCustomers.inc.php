@@ -2,8 +2,6 @@
 set_include_path(get_include_path() . PATH_SEPARATOR . 'classes/');
 include 'PHPExcel/IOFactory.php';
 
-if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
-
 // Upload the file temporary
 	$uploadedStatus = 0;
 	if(isset($_FILES["customers_file"])){
@@ -79,11 +77,11 @@ if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
 		);
 			
 		$res = $db->insert("customer", $insert);			
-	}
-	$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Customer List was successfully added!') : $_SESSION['msg']=array('res'=>'danger','msg'=>'There was an error! Please try again!');
-	echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'pharmacy/list">';
+		}
+		$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Customer List was successfully added!') : $_SESSION['msg']=array('res'=>'danger','msg'=>'There was an error! Please try again!');
+		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'pharmacy/list">';
 
-	unlink($storagename);
-endif;
+		unlink($storagename);
+	
 	
 ?>
