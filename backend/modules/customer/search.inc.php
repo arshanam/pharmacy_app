@@ -7,14 +7,17 @@
 
 <table class="table-font-size table table-striped">
 	<tr>
-		<td>
+		<td colspan="2">
 			<div class="form-group">
 				<label for="search_term" class="col-lg-2 control-label">Search Term:</label>
     	  <div class="col-lg-10">
+          <input type='hidden' name='pager__' class='pager__' value='1'>
 	        <input class="form-control" id="search_term" name="search_term" type="text" value="">
         </div>
 	    </div>
 		</td>
+  </tr>
+  <tr>
 		<td>
 			 <div class="form-group">
         <label for="group_code" class="col-lg-2 control-label">Group:</label>
