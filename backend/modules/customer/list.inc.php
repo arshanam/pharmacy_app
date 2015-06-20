@@ -18,7 +18,7 @@
   $results = $db->get("customer","100"); ?>
 
   <!--<pre><?php print_r($db); ?></pre>-->
-    
+
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
 			<?php if($results): ?>

@@ -33,7 +33,7 @@
       $res = $db->insert("customer", $insert);
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'Customer <b>'.$_POST['card_name'].'</b> Successfully Added!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
-		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'customer/list">';
+		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'customer/search">';
 
   endif;
 

@@ -4,6 +4,12 @@
 	<span class="line"></span>
 </h3>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    fetch_customers();
+  });
+</script>
+
 
 <table class="table-font-size table table-striped">
 	<tr>
@@ -23,7 +29,7 @@
         <label for="group_code" class="col-lg-2 control-label">Group:</label>
         <div class="col-lg-6">
           <select id="group_code" name="group_code" class="form-control">
-            <option value="">Select: </option>
+            <option value="">All </option>
             <?php
                 $groups = $db->get("groups");
                 foreach($groups as $group):
@@ -39,7 +45,7 @@
         <label class="col-lg-2 control-label" for="region">Region:</label>
         <div class="col-lg-6">
             <select id="region" name="region" class="form-control">
-                <option value="">Select: </option>
+                <option value="">All </option>
                 <?php
                     $regions = $db->get("region");
                     foreach($regions as $reg):
@@ -57,13 +63,17 @@
 
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
+			<div>Number of Results:
+				<select name="pageLimit">
+				<option value="10">10</option>
+				<option value="100">100</option>
+				<option value="200">200</option>
+				</select>
+			</div>
+
 			<div class="customers_fetched"></div>
 		</div><!-- /.padding-md -->
 	</div><!-- /panel -->
 
-	 
-
-<!-- Script Files -->
-<?php include('js/scripts/list.php'); ?>
 <script src='js/scripts/customer_search.js'></script>
 

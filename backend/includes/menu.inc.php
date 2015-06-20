@@ -1,6 +1,10 @@
 <?php
     $customer_count = $db->getValue ("customer", "count(*)");
     $product_count = $db->getValue ("product", "count(*)");
+
+
+    $_REQUEST['action'];
+    
 ?>
 
     <div class="main-menu">
@@ -38,7 +42,7 @@
 
 						<!-- Customers -->
 
-			<li class="openable open">
+			<li class="openable open <?=$_REQUEST['module']=='customer' ? 'active' : '';?>">
 				<a href="#">
                 <span class="menu-icon"><i class="fa fa-user fa-lg">&nbsp;</i></span>
 								<span class="text">Customers</span>
@@ -46,25 +50,27 @@
                 <span class="menu-hover"></span>
 				</a>  
 				<ul class="submenu">
-                <li>
+                <li class="<?=$_REQUEST['action']=='search' ? 'active' : '';?>">
                   <a href="customer/search">
                     <span class="menu-icon"><i class="fa fa-search fa-lg"> &nbsp;</i></span>
                     <span class="submenu-label">Search Customer</span>
                   </a>
                 </li>
-                <li>
+                <li class="<?=$_REQUEST['action']=='add' ? 'active' : '';?>">
                   <a href="customer/add">
                     <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
                     <span class="submenu-label">Add Customer</span>
                   </a>
                 </li>
+<!--
                 <li>
                   <a href="customer/list">
                     <span class="menu-icon"><i class="fa fa-list fa-lg"> &nbsp;</i></span>
                     <span class="submenu-label">List ALL Customers</span>
                   </a>
                 </li>
-                <li>
+-->
+                <li class="<?=$_REQUEST['action']=='importCustomers' ? 'active' : '';?>">
                   <a href="customer/importCustomers">
                     <span class="menu-icon"><i class="fa fa-cloud-upload fa-lg"> &nbsp;</i></span>
                     <span class="submenu-label"> Import Customers</span>

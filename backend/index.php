@@ -37,20 +37,20 @@
     <base href='<?=BASEURL;?>'>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
+
 		<!-- Font Awesome -->
 		<link href="css/font-awesome.min.css" rel="stylesheet">
 
 		<!-- Pace -->
-		<link href="css/pace.css" rel="stylesheet">	
-		
+		<link href="css/pace.css" rel="stylesheet">
+
 		<!-- Perfect -->
 		<link href="css/app.min.css" rel="stylesheet">
 		<link href="css/app-skin.css" rel="stylesheet">
-		
+
 		<!-- Jquery -->
 		<script src="js/jquery-1.10.2.min.js"></script>
-		
+
 		<link rel="shortcut icon" href="http://faviconist.com/icons/340bb379c9fcfd9985b1f4a793e94493/favicon.ico" />
   </head>
 
@@ -145,26 +145,26 @@
 
 	<!-- Bootstrap -->
   <script src="bootstrap/js/bootstrap.min.js"></script>
-   
+
 	<!-- Modernizr -->
 	<script src='js/modernizr.min.js'></script>
-   
+
     <!-- Pace -->
 	<script src='js/pace.min.js'></script>
-	
+
 	<!-- Popup Overlay -->
 	<script src='js/jquery.popupoverlay.min.js'></script>
-   
+
     <!-- Slimscroll -->
 	<script src='js/jquery.slimscroll.min.js'></script>
-    
+
 	<!-- Cookie -->
 	<script src='js/jquery.cookie.min.js'></script>
 
 	<!-- Perfect -->
-	
+
 	<script src="js/app/app.js"></script>
-	
+
 		
   </body>
 </html>

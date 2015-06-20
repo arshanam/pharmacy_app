@@ -6,7 +6,7 @@ require_once '../../includes/required.inc.php';
 require_once '../../classes/class.encryption.php';
 require_once '../../classes/class.log.php';
 require_once '../../classes/class.user.php';
-include_once('../../classes/class.form.php');
+include_once '../../classes/class.form.php';
 include_once '../../classes/class.pager.php';
 $pager= new paginator();
 $form = new Form();
@@ -16,7 +16,7 @@ $db2 = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
 
 
 isset($_POST['page']) ? $currentPage=$_POST['page'] : $currentPage=0;
-$pageLimit = 10;
+$pageLimit = 100;
 if ($currentPage == 0) $currentPage = 1;
 $limitFrom = ($pageLimit * $currentPage) - $pageLimit;
 
@@ -95,17 +95,16 @@ switch ($_POST['f']) {
 
 		$results = $db->get("customer", Array ($limitFrom, $pageLimit));
 
-		$db->echoQuery();
+		//$db->echoQuery();
 
 		$db2->withTotalCount()->get("customer");
-		$db2->echoQuery();
+		//$db2->echoQuery();
 		$total_customers = $db2->totalCount;
 
-		echo '<div class="total-number-customers"><span class="badge badge-success">'.$total_customers.' customers found!</span></div>';
-
+		echo '<div class="float-left total-number-customers"><span class="badge badge-success">'.$total_customers.' customers found!</span></div>';
 		if($results):
 			?>
-			<table class="table-font-size table table-striped">
+			<table class="table-font-size table table-striped" id="dataTable">
 				<thead>
 		      <tr>
 		        <th>#</th>
@@ -120,7 +119,7 @@ switch ($_POST['f']) {
 				<tbody>
 
 			<?php
-			$i=0;
+			$i=$limitFrom;
 			foreach($results as $res):
 				$db->where('id', $res['region']);
 				$region = $db->getOne("region");
