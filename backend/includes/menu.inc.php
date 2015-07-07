@@ -1,15 +1,12 @@
 <?php
     $customer_count = $db->getValue ("customer", "count(*)");
     $product_count = $db->getValue ("product", "count(*)");
-
-
-    $_REQUEST['action'];
     
 ?>
 
     <div class="main-menu">
       <ul>
-        <li>
+       	<li class="<?=(!isset($_REQUEST['module'])) || (isset($_REQUEST['module']) && $_REQUEST['module']=='dashboard')  ? 'active' : '';?>">
             <a href="dashboard">
               <span class="menu-icon">
                   <i class="fa fa-desktop fa-lg"></i>
@@ -20,125 +17,100 @@
               <span class="menu-hover"></span>
           </a>
         </li>
-						
 
-						<!-- PHARMACIES -->
-						<!--
-						<li class="openable open">
-							<a href="#">
-								<span class="menu-icon">
-									<i class="fa fa-plus-square fa-lg"></i> 
-								</span>
-								<span class="text">Pharmacies</span>
-								<span class="menu-hover"></span>
-							</a>  
-							<ul class="submenu">
-								<li><a href="pharmacy/list"><span class="submenu-label">List Pharmacies</span></a></li>
-								<li><a href="pharmacy/add"><span class="submenu-label">Add Pharmacy</span></a></li>
-							</ul>
-						</li>
-						-->
-						<!-- /PHARMACIES -->
 
-						<!-- Customers -->
-
-			<li class="openable open <?=$_REQUEST['module']=='customer' ? 'active' : '';?>">
+			<!-- Customers -->
+			<li class="openable open <?=isset($_REQUEST['module']) && $_REQUEST['module']=='customer' ? 'active' : '';?>">
 				<a href="#">
-                <span class="menu-icon"><i class="fa fa-user fa-lg">&nbsp;</i></span>
-								<span class="text">Customers</span>
-                <span class="badge badge-danger m-left-xs"><?=$customer_count;?></span>
-                <span class="menu-hover"></span>
+          <span class="menu-icon"><i class="fa fa-user fa-lg">&nbsp;</i></span>
+					<span class="text">Customers</span>
+          <!--<span class="badge badge-danger m-left-xs"><?=$customer_count;?></span>-->
+          <span class="menu-hover"></span>
 				</a>  
 				<ul class="submenu">
-                <li class="<?=$_REQUEST['action']=='search' ? 'active' : '';?>">
-                  <a href="customer/search">
-                    <span class="menu-icon"><i class="fa fa-search fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">Search Customer</span>
-                  </a>
-                </li>
-                <li class="<?=$_REQUEST['action']=='add' ? 'active' : '';?>">
-                  <a href="customer/add">
-                    <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">Add Customer</span>
-                  </a>
-                </li>
-<!--
-                <li>
-                  <a href="customer/list">
-                    <span class="menu-icon"><i class="fa fa-list fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">List ALL Customers</span>
-                  </a>
-                </li>
--->
-                <li class="<?=$_REQUEST['action']=='importCustomers' ? 'active' : '';?>">
-                  <a href="customer/importCustomers">
-                    <span class="menu-icon"><i class="fa fa-cloud-upload fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label"> Import Customers</span>
-                  </a>
-                </li>
-                <!--<li>
-                  <a href="customer/exportCustomers">
-                    <span class="menu-icon"><i class="fa fa-cloud-download fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label"> Export Customers</span>
-                  </a>
-                </li>-->
-							</ul>
-						</li>
-						<!-- /Customers -->
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='search' ? 'active' : '';?>">
+            <a href="customer/search">
+              <span class="menu-icon"><i class="fa fa-search fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Search Customer</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='add' ? 'active' : '';?>">
+            <a href="customer/add">
+              <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Add Customer</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='importCustomers' ? 'active' : '';?>">
+            <a href="customer/importCustomers">
+              <span class="menu-icon"><i class="fa fa-cloud-upload fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label"> Import Customers</span>
+            </a>
+          </li>
+          <!--<li>
+            <a href="customer/exportCustomers">
+              <span class="menu-icon"><i class="fa fa-cloud-download fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label"> Export Customers</span>
+            </a>
+          </li>-->
+				</ul>
+			</li>
+			<!-- /Customers -->
 
+			<!-- Products -->
+			<li class="openable open <?=isset($_REQUEST['module']) && $_REQUEST['module']=='product' ? 'active' : '';?>">
+				<a href="#">
+          <span class="menu-icon"><i class="fa fa-file-text fa-lg">&nbsp;</i></span>
+					<span class="text">Products</span>
+          <span class="menu-hover"></span>
+				</a>  
+				<ul class="submenu">
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='search' ? 'active' : '';?>">
+            <a href="product/search">
+              <span class="menu-icon"><i class="fa fa-search fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Search Products</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='add' ? 'active' : '';?>">
+            <a href="product/add">
+              <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Add Product</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='importProducts' ? 'active' : '';?>">
+            <a href="product/importProducts">
+              <span class="menu-icon"><i class="fa fa-cloud-upload fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label"> Import Products</span>
+            </a>
+          </li>
+				</ul>
+			</li>
+			<!-- /Products -->
 
-						<!-- Products -->
-						<li class="openable open">
-							<a href="#">
-								<span class="menu-icon">
-									<i class="fa fa-file-text fa-lg"></i> 
-								</span>
-								<span class="text">Products</span>
-                <span class="badge badge-danger m-left-xs"><?=$product_count;?></span>
-								<span class="menu-hover"></span>
-							</a>
-							<ul class="submenu">
-                <li>
-                  <a href="product/list">
-                    <span class="menu-icon"><i class="fa fa-list fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">List Products</span>
-                  </a>
-                </li>
-								<li>
-                  <a href="product/add">
-                    <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">Add Product</span>
-                  </a>
-                </li>
-							</ul>
-						</li>
-						<!-- /Products -->
-
-						<!-- Seetings -->
-						<li class="openable open">
-							<a href="#">
-								<span class="menu-icon">
-									<i class="fa fa-cogs fa-lg"></i> 
-								</span>
-								<span class="text">Settings</span>
-								<span class="menu-hover"></span>
-							</a>
-							<ul class="submenu">
-                <li>
-                  <a href="settings/groups">
-                    <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">Customer Groups</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="settings/region">
-                    <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
-                    <span class="submenu-label">Customer Regions</span>
-                  </a>
-                </li>
-							</ul>
-						</li>
-						<!-- /Settings -->
+			<!-- Seetings -->
+			<li class="openable open">
+				<a href="#">
+					<span class="menu-icon">
+						<i class="fa fa-cogs fa-lg"></i> 
+					</span>
+					<span class="text">Settings</span>
+					<span class="menu-hover"></span>
+				</a>
+				<ul class="submenu">
+          <li>
+            <a href="settings/groups">
+              <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Customer Groups</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings/region">
+              <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Customer Regions</span>
+            </a>
+          </li>
+				</ul>
+			</li>
+			<!-- /Settings -->
 
 						<li class="openable">
 							<a href="#">

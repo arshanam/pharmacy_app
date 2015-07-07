@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
 			$tokens = explode('.', $fileFormat);
 			$extension = $tokens[sizeof($tokens)-1];
 
-			$storagename = "products.".$extension;
+			$storagename = "prod.".$extension;
 			move_uploaded_file($_FILES["products_file"]["tmp_name"],  $storagename);
 			$uploadedStatus = 1;
 		}
@@ -36,60 +36,34 @@ if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
 	$arrayCount = count($allDataInSheet);  // Here get total count of row in that Excel sheet
 
 	for($i=1;$i<=$arrayCount;$i++){
-        $card_code = trim($allDataInSheet[$i]["A"]);
-        $card_name = trim($allDataInSheet[$i]["B"]);
-        $group_code = trim($allDataInSheet[$i]["C"]);
-        $region = trim($allDataInSheet[$i]["D"]);
-        $address = trim($allDataInSheet[$i]["E"]);
-        $zip_code = trim($allDataInSheet[$i]["F"]);
-        $city = trim($allDataInSheet[$i]["G"]);
-        $mail_address = trim($allDataInSheet[$i]["H"]);
-        $mail_zip_code = trim($allDataInSheet[$i]["I"]);
-        $phone1 = trim($allDataInSheet[$i]["J"]);
-        $phone2 = trim($allDataInSheet[$i]["K"]);
-        $cellular = trim($allDataInSheet[$i]["L"]);
-        $fax = trim($allDataInSheet[$i]["M"]);
-        $contact_person = trim($allDataInSheet[$i]["N"]);
-        $country = trim($allDataInSheet[$i]["O"]);
-        $country_code = trim($allDataInSheet[$i]["P"]);
-        $email = trim($allDataInSheet[$i]["Q"]);
-        $block = trim($allDataInSheet[$i]["R"]);
-	  
+		$item_code = trim($allDataInSheet[$i]["A"]);
+		$barcode = trim($allDataInSheet[$i]["B"]);
+	  $description = trim($allDataInSheet[$i]["C"]);
+	  $supplier = trim($allDataInSheet[$i]["D"]);
+	  $category = trim($allDataInSheet[$i]["E"]);
+		$wsale = trim($allDataInSheet[$i]["F"]);
+	  $retail = trim($allDataInSheet[$i]["G"]);
+	  $vat = trim($allDataInSheet[$i]["H"]);
+
 	  $insert = array(
-	    "card_code" => $card_code,
-	    "card_name" => $card_name,
-	    "group_code" => $group_code,
-	    "region" => $region,
-	    "address" => $address,
-	    "zip_code" => $zip_code,
-	    "city" => $city,
-	    "mail_address" => $mail_address,
-	    "mail_zip_code" => $mail_zip_code,
-	    "phone1" => $phone1,
-	    "phone2" => $phone2,
-	    "cellular" => $cellular,
-	    "fax" => $fax,
-	    "contact_person" => $contact_person,
-	    "country" => $country,
-	    "country_code" => $country_code,
-	    "email" => $email,
-	    "block" => $block,
-	    "status" => 1		    
+        "item_code" => $item_code,
+        "barcode" => $barcode,
+        "description" => $description,
+        "supplier" => $supplier,
+        "category" => $category,
+        "wsale" => $wsale,
+        "retail" => $retail,
+        "vat" => $vat,
+        "status" => "1",
+        "date_created" => date("Y-m-d H:i:s")
 		);
 			
-		$res = $db->insert("customer", $insert);
+		$res = $db->insert("product", $insert);			
+	}
+	$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Product List was successfully added!') : $_SESSION['msg']=array('res'=>'danger','msg'=>'There was an error! Please try again!');
+	echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'product/search">';
 
-		if ($res)
-	  	echo 'created:' . $res;
-		else
-	  	echo 'insert failed: ' . $db->getLastError();
-
-			/*
-			$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Pharmacy "'.($_POST['title']!='' ? $_POST['title'] : $_POST['name']).'" successfully added') : $_SESSION['msg']=array('res'=>'danger','msg'=>'Not added! Please try again!');
-			echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'pharmacy/list">';
-			*/
-		}
-		unlink($storagename);
-	endif;
+	//unlink($storagename);
+endif;
 	
 ?>

@@ -1,5 +1,6 @@
 <h3 class="headline m-top-md">
 	<div class="float-left">Search Customers: </div>
+	 <div class="float-right margin-right-20"><a href="customer/add" class="btn btn-primary btn-sm">New Customer</a></div>
   <div class="clear"></div>
 	<span class="line"></span>
 </h3>
@@ -61,6 +62,7 @@
 	</tr>
 </table>
 
+<!--
 	<div class="panel panel-default table-responsive">
 		<div class="padding-md clearfix">
 			<div>Number of Results:
@@ -70,7 +72,7 @@
 				<option value="200">200</option>
 				</select>
 			</div>
-
+-->
 			<div class="customers_fetched"></div>
 		</div><!-- /.padding-md -->
 	</div><!-- /panel -->

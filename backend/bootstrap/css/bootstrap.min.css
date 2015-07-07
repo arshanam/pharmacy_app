@@ -6349,3 +6349,7 @@ button.close {
 .pagination a:hover{ 
     border:solid 1px #b2b2b2; 
 }
+
+.margin-right-20{
+    margin-right: 20px;
+}

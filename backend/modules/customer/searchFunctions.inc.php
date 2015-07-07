@@ -101,7 +101,7 @@ switch ($_POST['f']) {
 		//$db2->echoQuery();
 		$total_customers = $db2->totalCount;
 
-		echo '<div class="float-left total-number-customers"><span class="badge badge-success">'.$total_customers.' customers found!</span></div>';
+		echo '<div class="total-number-customers" align="center"><span class="badge badge-success">'.$total_customers.' customers found!</span></div>';
 		if($results):
 			?>
 			<table class="table-font-size table table-striped" id="dataTable">

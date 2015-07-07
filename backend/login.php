@@ -61,10 +61,10 @@ if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'){
 							<i class="fa fa-lock fa-lg"></i> Login
 						</div>
 
-						<div class="pull-right">
+						<!--<div class="pull-right">
 							<span style="font-size:11px;">Don't have any account?</span>
 							<a class="btn btn-default btn-xs login-link" href="register.html" style="margin-top:-2px;"><i class="fa fa-plus-circle"></i> Sign up</a>
-						</div>
+						</div>-->
 					</div>
 					<div class="panel-body">
 						<form class="form-login" method="POST" action="login.php">
