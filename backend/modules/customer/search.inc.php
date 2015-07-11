@@ -5,9 +5,15 @@
 	<span class="line"></span>
 </h3>
 
+<?php
+  if(isset($_SESSION['result']) && $_SESSION['result']!=''):
+    check_for_notifications($_SESSION['result']['msg'],$_SESSION['result']['res']);
+  endif;
+?>
+
 <script type="text/javascript">
   $(document).ready(function(){
-    fetch_customers();
+    //fetch_customers();
   });
 </script>
 
@@ -78,4 +84,5 @@
 	</div><!-- /panel -->
 
 <script src='js/scripts/customer_search.js'></script>
+<?php include('js/scripts/list.php'); ?>
 

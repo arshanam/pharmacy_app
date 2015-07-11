@@ -83,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
 	$res ? $_SESSION['result']=array('res'=>'success','msg'=>'Customer List was successfully added!') : $_SESSION['msg']=array('res'=>'danger','msg'=>'There was an error! Please try again!');
 	echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'customer/search">';
 
-	unlink($storagename);
+	//unlink($storagename);
 endif;
 	
 ?>

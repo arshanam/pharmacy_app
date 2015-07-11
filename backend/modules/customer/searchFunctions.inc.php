@@ -136,7 +136,10 @@ switch ($_POST['f']) {
 						<td><?= $region['title']; ?></td>
 						<td><?= $res['city']; ?></td>
 						<td><?= $res['phone1']; ?></td>
-			      <td><a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
+			      <td>
+			      	<a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a>
+			      	<a href="customer/add/<?=$res['id'];?>" title="Delete" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-minus-circle"></i></a>
+		      	</td>
 					</tr>
 
 				<?php
