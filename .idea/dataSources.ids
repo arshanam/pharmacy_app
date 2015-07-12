@@ -71,6 +71,8 @@
       <column name="wsale" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
       <column name="retail" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
       <column name="vat" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="ENUM" precision="2" scale="0" nullable="false" jdbcType="1"/>
+      <column name="date_created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="product_category" schema="" catalog="pharmacy_app" type="TABLE">

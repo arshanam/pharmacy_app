@@ -6,6 +6,7 @@ define("DBNAME", "pharmacy_app");
 getOS()=='Ubuntu' ? define("DBPASS", "athlonamd") : define("DBPASS", "");
 define("DBHOST", "localhost");
 define("BASEURL", "http://localhost/pharmacy_app/backend/");
+//define("BASEURL", "http://$_SERVER[HTTP_HOST]/backend/");
 
 /*
 define("DBHOST", "localhost");
@@ -48,6 +49,15 @@ function check_for_notifications($msg, $res){
 	endif;
 }
 
+function create_log_action($user_id, $action_msg){
+    $db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
+     $insert_log = array(
+          'user_id'=>$user_id,
+          'action'=>$action_msg,
+          "date_time" => date("Y-m-d H:i:s")
+        );
+    $log = $db->insert ('log_activity', $insert_log);
+}
 
 /**************************************************************************************/
 function post_text_variable($var){

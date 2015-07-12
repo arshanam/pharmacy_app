@@ -1,7 +1,13 @@
 <?php
+  if(isset($_SESSION['result']) && $_SESSION['result']!=''):
+    check_for_notifications($_SESSION['result']['msg'],$_SESSION['result']['res']);
+  endif;
+?>
+
+<?php
     $customer_count = $db->getValue ("customer", "count(*)");
     $product_count = $db->getValue ("product", "count(*)");
-    
+
 ?>
 
     <div class="main-menu">
@@ -38,6 +44,18 @@
             <a href="customer/add">
               <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
               <span class="submenu-label">Add Customer</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='groups' ? 'active' : '';?>">
+            <a href="customer/groups">
+              <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Customer Groups</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='region' ? 'active' : '';?>">
+            <a href="customer/region">
+              <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Customer Regions</span>
             </a>
           </li>
           <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='importCustomers' ? 'active' : '';?>">
@@ -82,11 +100,49 @@
               <span class="submenu-label"> Import Products</span>
             </a>
           </li>
+           <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='categories' ? 'active' : '';?>">
+            <a href="product/categories">
+              <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Product Categories</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='suppliers' ? 'active' : '';?>">
+            <a href="product/suppliers">
+              <span class="menu-icon"><i class="fa fa-cog fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Product Suppliers</span>
+            </a>
+          </li>
 				</ul>
 			</li>
 			<!-- /Products -->
 
+      <!-- Users -->
+      <li class="openable open <?=isset($_REQUEST['module']) && $_REQUEST['module']=='user' ? 'active' : '';?>">
+        <a href="#">
+          <span class="menu-icon"><i class="fa fa-user fa-lg">&nbsp;</i></span>
+          <span class="text">Users</span>
+          <span class="menu-hover"></span>
+        </a>
+        <ul class="submenu">
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='search' ? 'active' : '';?>">
+            <a href="user/search">
+              <span class="menu-icon"><i class="fa fa-search fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Search Users</span>
+            </a>
+          </li>
+          <li class="<?=isset($_REQUEST['action']) && $_REQUEST['action']=='add' ? 'active' : '';?>">
+            <a href="user/add">
+              <span class="menu-icon"><i class="fa fa-plus fa-lg"> &nbsp;</i></span>
+              <span class="submenu-label">Add User</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- /Users -->
+
+
 			<!-- Seetings -->
+        <!--
 			<li class="openable open">
 				<a href="#">
 					<span class="menu-icon">
@@ -110,6 +166,7 @@
           </li>
 				</ul>
 			</li>
+			-->
 			<!-- /Settings -->
 
 						<li class="openable">

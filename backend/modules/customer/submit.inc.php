@@ -28,11 +28,14 @@
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
       $res = $db->update ('customer', $insert);
-      $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'Customer <b>'.$_POST['card_name'].'</b> Successfully Updated!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
+      $action_msg='Customer <b>'.$_POST['card_name'].'</b> Updated!';
+      $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
       $res = $db->insert("customer", $insert);
-      $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'Customer <b>'.$_POST['card_name'].'</b> Successfully Added!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
+      $action_msg='Customer <b>'.$_POST['card_name'].'</b> Added!';
+      $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
+    create_log_action($_SESSION['user_id'], $action_msg);
 		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'customer/search">';
 
   endif;

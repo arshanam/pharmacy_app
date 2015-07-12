@@ -19,6 +19,7 @@
 			if ($results) {
 				$_SESSION['login'] = true;
 				$_SESSION['user_logged_in_name']=$results['name']." ".$results['lastname'];
+				$_SESSION['user_id']=$results['id'];
 				return true;
 			}else{
 				return false;

@@ -11,10 +11,36 @@
   if($edit):
     $db->where ("id", $_GET['id']);
     $product = $db->getOne ("product");
+    if($product['status']==1):
+      $checked_enabled = 'checked="checked"';
+      $checked_disabled="";
+    elseif($product['status']==0):
+      $checked_disabled = 'checked="checked"';
+      $checked_enabled="";
+    endif;
+
   endif;
 ?>
 
 <form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="product/submit<?= isset($_GET['id']) ? '/'.$_GET['id'] : '';?>" method="POST">
+
+  <?php if($edit): ?>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Status:</label>
+      <div class="col-lg-10" style="padding-top: 5px;">
+        <label class="label-radio inline" for="enabled">
+          <input type="radio" id="enabled" name="status" value="1" <?= $checked_enabled; ?>>
+          <span class="custom-radio"></span>
+          Enabled
+        </label>
+        <label class="label-radio inline" for="disabled">
+          <input type="radio" id="disabled" name="status" value="0" <?= $checked_disabled; ?>>
+          <span class="custom-radio"></span>
+          Diabled
+        </label>
+      </div>
+    </div>
+  <?php endif; ?>
 
 <?php
     $form->text_field('item_code', 'Item Code', $edit ? $product['item_code'] : '');

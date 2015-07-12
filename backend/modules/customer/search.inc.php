@@ -5,12 +5,6 @@
 	<span class="line"></span>
 </h3>
 
-<?php
-  if(isset($_SESSION['result']) && $_SESSION['result']!=''):
-    check_for_notifications($_SESSION['result']['msg'],$_SESSION['result']['res']);
-  endif;
-?>
-
 <script type="text/javascript">
   $(document).ready(function(){
     //fetch_customers();

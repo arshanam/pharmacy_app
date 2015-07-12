@@ -15,18 +15,19 @@
       <change type="DELETED" beforePath="C:\wamp\www\pharmacy_app\backend\modules\category\list.inc.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp\www\pharmacy_app\backend\modules\company\add.inc.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp\www\pharmacy_app\backend\modules\company\list.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\pharmacy_app\backend\modules\settings\groups.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\pharmacy_app\backend\modules\settings\region.inc.php" afterPath="" />
       <change type="DELETED" beforePath="C:\wamp\www\pharmacy_app\backend\prod.xlsx" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/customer/add.inc.php" afterPath="$PROJECT_DIR$/backend/modules/customer/add.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/product/add.inc.php" afterPath="$PROJECT_DIR$/backend/modules/product/add.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/backend/bootstrap/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/classes/class.form.php" afterPath="$PROJECT_DIR$/backend/classes/class.form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/js/scripts/customer_search.js" afterPath="$PROJECT_DIR$/backend/js/scripts/customer_search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/includes/menu.inc.php" afterPath="$PROJECT_DIR$/backend/includes/menu.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/includes/required.inc.php" afterPath="$PROJECT_DIR$/backend/includes/required.inc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/customer/search.inc.php" afterPath="$PROJECT_DIR$/backend/modules/customer/search.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/customer/searchFunctions.inc.php" afterPath="$PROJECT_DIR$/backend/modules/customer/searchFunctions.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/product/search.inc.php" afterPath="$PROJECT_DIR$/backend/modules/product/search.inc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/product/searchFunctions.inc.php" afterPath="$PROJECT_DIR$/backend/modules/product/searchFunctions.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/customer/submit.inc.php" afterPath="$PROJECT_DIR$/backend/modules/customer/submit.inc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/product/submit.inc.php" afterPath="$PROJECT_DIR$/backend/modules/product/submit.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/modules/customer/uploadCustomers.inc.php" afterPath="$PROJECT_DIR$/backend/modules/customer/uploadCustomers.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pharmacy_app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,6 +65,24 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - pharmacy_app@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="pharmacy_app" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="product" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -71,16 +90,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list.inc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/modules/customer/list.inc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.0" vertical-offset="541" max-vertical-offset="1312">
-              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/bootstrap/css/bootstrap.min.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -91,49 +100,111 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.inc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/modules/customer/add.inc.php">
+      <file leaf-file-name="search.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/modules/product/search.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8" vertical-offset="600" max-vertical-offset="1728">
-              <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
+            <state vertical-scroll-proportion="-25.48" vertical-offset="51" max-vertical-offset="1152">
+              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.inc.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/includes/menu.inc.php">
+      <file leaf-file-name="searchFunctions.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/modules/product/searchFunctions.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.28" vertical-offset="880" max-vertical-offset="2240">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="required.inc.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/includes/required.inc.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5116279" vertical-offset="0" max-vertical-offset="3232">
-              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            <state vertical-scroll-proportion="-24.32" vertical-offset="0" max-vertical-offset="2640">
+              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
-                <marker date="1434204055905" expanded="true" signature="2184:2219" placeholder="SELECT name ..users..." />
+                <marker date="1436720633026" expanded="true" signature="3684:3767" placeholder="..." />
+                <marker date="1436720633026" expanded="false" signature="3714:3740" placeholder="..." />
+                <marker date="1436720633026" expanded="false" signature="3754:3766" placeholder="..." />
+                <marker date="1436720633026" expanded="true" signature="4463:4589" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pharmacy_app.product" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/556cf04/f4947cdb-0f1f-4b62-a6a0-d1ff7e6a03e0/pharmacy_app..product">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="96">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+      <file leaf-file-name="uploadProducts.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/modules/product/uploadProducts.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.12" vertical-offset="0" max-vertical-offset="1184">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        </entry>
+      </file>
+      <file leaf-file-name="submit.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/modules/product/submit.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.72" vertical-offset="0" max-vertical-offset="544">
+              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu.inc.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/includes/menu.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.88372093" vertical-offset="1584" max-vertical-offset="2656">
+              <caret line="137" column="6" selection-start-line="137" selection-start-column="6" selection-end-line="137" selection-end-column="6" />
+              <folding>
+                <marker date="1436721564742" expanded="true" signature="2019:2185" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="2307:2528" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="2345:2512" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="2690:2867" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="2899:3146" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="3342:3519" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="3546:3587" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="3689:3858" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="4011:4174" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="4349:4525" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="4984:5688" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5001:5171" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5031:5084" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5196:5679" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5211:5432" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5250:5416" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5447:5669" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5486:5653" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5746:6385" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5766:6050" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5799:5857" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="5885:5920" placeholder="..." />
+                <marker date="1436721564742" expanded="true" signature="6078:6373" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="groups.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/modules/customer/groups.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.2" vertical-offset="864" max-vertical-offset="1552">
+              <caret line="84" column="14" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="region.inc.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/modules/customer/region.inc.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.8" vertical-offset="692" max-vertical-offset="1488">
+              <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/content.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.24" vertical-offset="0" max-vertical-offset="384">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -154,8 +225,15 @@
         <option value="$PROJECT_DIR$/backend/index.php" />
         <option value="$PROJECT_DIR$/backend/modules/customer/list.inc.php" />
         <option value="$PROJECT_DIR$/backend/modules/customer/searchFunctions.inc.php" />
-        <option value="$PROJECT_DIR$/backend/modules/customer/search.inc.php" />
         <option value="$PROJECT_DIR$/backend/bootstrap/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/backend/includes/required.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/product/submit.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/product/add.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/customer/search.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/product/search.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/product/searchFunctions.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/customer/groups.inc.php" />
+        <option value="$PROJECT_DIR$/backend/modules/customer/region.inc.php" />
         <option value="$PROJECT_DIR$/backend/includes/menu.inc.php" />
       </list>
     </option>
@@ -280,7 +358,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="customer" />
+              <option name="myItemId" value="product" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,7 +376,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -457,16 +539,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="886" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28778136" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10816619" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11461318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11891118" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31782946" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21543409" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -533,57 +615,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backend/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1995">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/includes/menu.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="681" max-vertical-offset="1845">
-          <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/customer/importCustomers.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="585">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/product/importProducts.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="585">
-          <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/product/uploadProducts.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/product/list.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/customer/list.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="128" max-vertical-offset="1125">
-          <caret line="61" column="66" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/js/scripts/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="495">
@@ -603,7 +634,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="5145">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <marker date="1434204055905" expanded="true" signature="2184:2219" placeholder="SELECT name ..users..." />
+            <marker date="1436715368645" expanded="true" signature="-1:-1" placeholder="SELECT name ..users..." />
           </folding>
         </state>
       </provider>
@@ -619,7 +650,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="681" max-vertical-offset="1845">
           <caret line="59" column="53" selection-start-line="59" selection-start-column="53" selection-end-line="59" selection-end-column="53" />
-          <folding />
+          <folding>
+            <marker date="1436721564742" expanded="true" signature="2019:2185" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2307:2528" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2345:2512" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2690:2867" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2899:3146" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="3342:3519" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="3546:3587" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="3689:3858" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="4011:4174" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="4349:4525" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="4984:5688" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5001:5171" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5031:5084" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5196:5679" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5211:5432" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5250:5416" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5447:5669" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5486:5653" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5746:6385" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5766:6050" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5799:5857" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5885:5920" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="6078:6373" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -779,13 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/product/uploadProducts.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1700">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/modules/customer/importCustomers.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7692307" vertical-offset="413" max-vertical-offset="585">
@@ -814,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="336">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/modules/customer/uploadCustomers.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1232" max-vertical-offset="1504">
@@ -836,13 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/customer/submit.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="720">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1712">
@@ -854,14 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22107081" vertical-offset="0" max-vertical-offset="2176">
           <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36442143" vertical-offset="2109" max-vertical-offset="2816">
-          <caret line="145" column="20" selection-start-line="145" selection-start-column="20" selection-end-line="145" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,11 +906,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/includes/menu.inc.php">
+    <entry file="file://$PROJECT_DIR$/backend/modules/customer/searchFunctions.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.28" vertical-offset="880" max-vertical-offset="2240">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="-15.36" vertical-offset="1456" max-vertical-offset="3248">
+          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
+          <folding>
+            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1436629312494" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1436629312494" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/includes/required.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20930232" vertical-offset="0" max-vertical-offset="3248">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <marker date="1436715368645" expanded="true" signature="-1:-1" placeholder="SELECT name ..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/modules/product/add.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.96" vertical-offset="32" max-vertical-offset="1568">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -901,25 +954,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/customer/searchFunctions.inc.php">
+    <entry file="file://$PROJECT_DIR$/backend/modules/customer/submit.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.36" vertical-offset="1456" max-vertical-offset="3248">
-          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
-          <folding>
-            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1436629312494" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1436629312494" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1436629312494" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-16.36" vertical-offset="7" max-vertical-offset="720">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/modules/customer/add.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.04" vertical-offset="48" max-vertical-offset="1728">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/modules/product/submit.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.72" vertical-offset="0" max-vertical-offset="544">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/modules/customer/search.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79885876" vertical-offset="288" max-vertical-offset="1472">
-          <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.52496433" vertical-offset="96" max-vertical-offset="1376">
+          <caret line="29" column="69" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -932,20 +994,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/modules/customer/add.inc.php">
+    <entry file="file://$PROJECT_DIR$/backend/modules/product/search.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8" vertical-offset="600" max-vertical-offset="1728">
-          <caret line="45" column="68" selection-start-line="45" selection-start-column="68" selection-end-line="45" selection-end-column="68" />
+        <state vertical-scroll-proportion="-25.48" vertical-offset="51" max-vertical-offset="1152">
+          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/includes/required.inc.php">
+    <entry file="file://$PROJECT_DIR$/backend/modules/product/searchFunctions.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5116279" vertical-offset="0" max-vertical-offset="3232">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        <state vertical-scroll-proportion="-24.32" vertical-offset="0" max-vertical-offset="2640">
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
-            <marker date="1434204055905" expanded="true" signature="2184:2219" placeholder="SELECT name ..users..." />
+            <marker date="1436720633026" expanded="true" signature="3684:3767" placeholder="..." />
+            <marker date="1436720633026" expanded="false" signature="3714:3740" placeholder="..." />
+            <marker date="1436720633026" expanded="false" signature="3754:3766" placeholder="..." />
+            <marker date="1436720633026" expanded="true" signature="4463:4589" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/modules/product/uploadProducts.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.12" vertical-offset="0" max-vertical-offset="1184">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.24" vertical-offset="0" max-vertical-offset="384">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1627907" vertical-offset="0" max-vertical-offset="2816">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/modules/customer/groups.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.2" vertical-offset="864" max-vertical-offset="1552">
+          <caret line="84" column="14" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/modules/customer/region.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.8" vertical-offset="692" max-vertical-offset="1488">
+          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/includes/menu.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.88372093" vertical-offset="1584" max-vertical-offset="2656">
+          <caret line="137" column="6" selection-start-line="137" selection-start-column="6" selection-end-line="137" selection-end-column="6" />
+          <folding>
+            <marker date="1436721564742" expanded="true" signature="2019:2185" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2307:2528" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2345:2512" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2690:2867" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="2899:3146" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="3342:3519" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="3546:3587" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="3689:3858" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="4011:4174" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="4349:4525" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="4984:5688" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5001:5171" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5031:5084" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5196:5679" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5211:5432" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5250:5416" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5447:5669" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5486:5653" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5746:6385" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5766:6050" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5799:5857" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="5885:5920" placeholder="..." />
+            <marker date="1436721564742" expanded="true" signature="6078:6373" placeholder="..." />
           </folding>
         </state>
       </provider>

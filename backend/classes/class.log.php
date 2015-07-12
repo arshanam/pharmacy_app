@@ -2,21 +2,24 @@
 
 	class LogActivity {
 
-		public function __construct(){
-			$this->db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
+		public function __construct()
+		{
+			$db = new MysqliDb (DBHOST, DBUSER, DBPASS, DBNAME);
 		}
 
-		public function create_log($name, $title, $value){			
-			$return='';
-			$return.='<div class="form-group">
-								<label for="'.$name.'" class="col-lg-2 control-label">'.$title.':</label>
-			        <div class="col-lg-10">
-			            <input class="form-control" id="'.$name.'" name="'.$name.'" type="text" value="'.$value.'">
-			        </div>
-			    </div>';
-			echo $return;   
+		//create log action
+		public function create_log($user_id, $action){
+			
+			$insert = array(
+		    "user_id" => $user_id,
+		    "action" => $action,
+		    "date_created" => date("Y-m-d H:i:s")
+			);
+	    $res = $db->insert("log_action", $insert);
+			
 		}
-
 
 	}
+
+
 ?>
