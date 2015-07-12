@@ -1,11 +1,9 @@
 <?php
-
 	if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
-		
 		$insert = array(
-		    "card_name" => post_text_variable($_POST['card_name']),
-        "card_code" => post_text_variable($_POST['card_code']),
-        "group_code" => post_text_variable($_POST['group_code']),
+		    "item_code" => post_text_variable($_POST['item_code']),
+        "barcode" => post_text_variable($_POST['barcode']),
+        "description" => post_text_variable($_POST['description']),
         "region" => (int) $_POST['region'],
         "address" => post_text_variable($_POST['address']),
         "zip_code" => post_text_variable($_POST['zip_code']),
@@ -21,19 +19,19 @@
         "country_code" => post_text_variable($_POST['country_code']),
         "email" => post_text_variable($_POST['email']),
 		    "block" => post_text_variable($_POST['block']),
-		    "status" => '1',
+		    "status" => 1,
 		    "date_created" => date("Y-m-d H:i:s")
 		);
 
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
-      $res = $db->update ('customer', $insert);
+      $res = $db->update ('product', $insert);
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'Customer <b>'.$_POST['card_name'].'</b> Successfully Updated!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
-      $res = $db->insert("customer", $insert);
+      $res = $db->insert("product", $insert);
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>'Customer <b>'.$_POST['card_name'].'</b> Successfully Added!') : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
-		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'customer/search">';
+		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'product/search">';
 
   endif;
 

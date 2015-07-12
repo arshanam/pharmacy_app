@@ -78,6 +78,7 @@ switch ($_POST['f']) {
 		        <th>#</th>
 		        <th>Item Code</th>
 		        <th>Barcode</th>
+		        <th>Description</th>
 		        <th>Supplier</th>
 		        <th>Category</th>
 		        <th>W/Sale</th>
@@ -103,12 +104,13 @@ switch ($_POST['f']) {
 						<td><?= $i; ?></td>
 						<td><?= $res['item_code']; ?></td>
 			      <td><?= $res['barcode']; ?></td>
+			      <td><?= substr($res['description'],0,40);?>...</td>
 						<td><?= $supplier['title']; ?></td>
 						<td><?= $category['title']; ?></td>
 						<td><?= $res['wsale']; ?></td>
 						<td><?= $res['retail']; ?></td>
 						<td><?= $res['vat']; ?></td>
-			      <td><a href="product/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
+			      <td><a href="product/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
 					</tr>
 
 				<?php

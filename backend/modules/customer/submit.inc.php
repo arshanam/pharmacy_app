@@ -1,7 +1,7 @@
 <?php
 
 	if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
-		
+		$_POST['status']==null ? $status = 1 : $status = $_POST['status'];
 		$insert = array(
 		    "card_name" => post_text_variable($_POST['card_name']),
         "card_code" => post_text_variable($_POST['card_code']),
@@ -21,7 +21,7 @@
         "country_code" => post_text_variable($_POST['country_code']),
         "email" => post_text_variable($_POST['email']),
 		    "block" => post_text_variable($_POST['block']),
-		    "status" => '1',
+		    "status" => $status,
 		    "date_created" => date("Y-m-d H:i:s")
 		);
 

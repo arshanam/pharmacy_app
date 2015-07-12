@@ -77,6 +77,7 @@ switch ($_POST['f']) {
 			$db2->orWhere('email LIKE "%%")');
 		endif;
 
+		//Group
 		if(isset($_POST['group_code']) && $_POST['group_code']!=null):
 			$db->where('group_code="'.$_POST['group_code'].'"');
 			$db2->where('group_code="'.$_POST['group_code'].'"');
@@ -85,13 +86,24 @@ switch ($_POST['f']) {
 			$db2->where('group_code LIKE "%%"');
 		endif;
 
+		//Region
 		if(isset($_POST['region']) && $_POST['region']!=null):
 			$db->where('region="'.$_POST['region'].'"');
 			$db2->where('region="'.$_POST['region'].'"');
 		else:
 			$db->where('region LIKE "%%"');
 			$db2->where('region LIKE "%%"');
-		endif;		
+		endif;
+
+		//Status
+		if(isset($_POST['status']) && $_POST['status']!=null):
+			$db->where('status="'.$_POST['status'].'"');
+			$db2->where('status="'.$_POST['status'].'"');
+		else:
+			$db->where('status LIKE "%%"');
+			$db2->where('status LIKE "%%"');
+		endif;
+
 
 		$results = $db->get("customer", Array ($limitFrom, $pageLimit));
 
@@ -136,10 +148,7 @@ switch ($_POST['f']) {
 						<td><?= $region['title']; ?></td>
 						<td><?= $res['city']; ?></td>
 						<td><?= $res['phone1']; ?></td>
-			      <td>
-			      	<a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a>
-			      	<a href="customer/add/<?=$res['id'];?>" title="Delete" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-minus-circle"></i></a>
-		      	</td>
+			      <td><a href="customer/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-sm tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
 					</tr>
 
 				<?php

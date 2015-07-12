@@ -17,6 +17,18 @@
 			echo $return;   
 		}
 
+		public function text_area($name, $title, $value){
+			$return='';
+			$return.='<div class="form-group">
+									<label for="'.$name.'" class="col-lg-2 control-label">'.$title.':</label>
+				        <div class="col-lg-10">
+				        	<textarea name="'.$name.'" id="'.$name.'" class="form-control" rows="3">'.$value.'</textarea>
+				        </div>
+				    </div>';
+			echo $return;   
+		}
+
+
 		public function submit_button($name){
 			$return='<div class="form-group">
 								<label class="col-lg-2 control-label"></label>

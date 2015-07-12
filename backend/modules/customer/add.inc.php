@@ -2,6 +2,8 @@
 
 <h3 class="headline m-top-md">
 	<?= $edit ? 'Edit Customer:' : 'Add a new customer: '; ?>
+  <div class="float-right margin-bottom-10"><a href="customer/search" class="btn btn-primary">Back</a></div>
+  <div class="clear"></div>
 	<span class="line"></span>
 </h3>
 
@@ -9,10 +11,36 @@
   if($edit):
     $db->where ("id", $_GET['id']);
     $customer = $db->getOne ("customer");
+
+    if($customer['status']==1):
+      $checked_enabled = 'checked="checked"';
+      $checked_disabled="";
+    elseif($customer['status']==0):
+      $checked_disabled = 'checked="checked"';
+      $checked_enabled="";
+    endif;
   endif;
 ?>
 
 <form id="formToggleLine" class="form-horizontal no-margin form-border" name="" action="customer/submit<?= isset($_GET['id']) ? '/'.$_GET['id'] : '';?>" method="POST">
+
+<?php if($edit): ?>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Status:</label>
+      <div class="col-lg-10" style="padding-top: 5px;">
+        <label class="label-radio inline" for="enabled">
+          <input type="radio" id="enabled" name="status" value="1" <?= $checked_enabled; ?>>
+          <span class="custom-radio"></span>
+          Enabled
+        </label>
+        <label class="label-radio inline" for="disabled">
+          <input type="radio" id="disabled" name="status" value="0" <?= $checked_disabled; ?>>
+          <span class="custom-radio"></span>
+          Diabled
+        </label>
+      </div>
+    </div>
+  <?php endif; ?>
 
 <?php
     $form->text_field('card_code', 'Card Code', $edit ? $customer['card_code'] : '');
@@ -51,7 +79,6 @@
         </div>
         <div class="col-lg-5"></div>
     </div><!-- /form-group -->
-
     
     <?php
         $form->text_field('city', 'City', $edit ? $customer['city'] : '');

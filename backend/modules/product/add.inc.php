@@ -2,6 +2,8 @@
 
 <h3 class="headline m-top-md">
 	<?= $edit ? 'Edit product:' : 'Add a new product: '; ?>
+    <div class="float-right margin-bottom-10"><a href="product/search" class="btn btn-primary">Back</a></div>
+    <div class="clear"></div>
 	<span class="line"></span>
 </h3>
 
@@ -52,6 +54,7 @@
 
     
     <?php
+        $form->text_area('description', 'Description', $edit ? $product['description'] : '');
         $form->text_field('wsale', 'W/Sale', $edit ? $product['wsale'] : '');
         $form->text_field('retail', 'Retail', $edit ? $product['retail'] : '');
         $form->text_field('vat', 'VAT', $edit ? $product['vat'] : '');
