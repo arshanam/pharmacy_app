@@ -1,13 +1,12 @@
 <h3 class="headline m-top-md">
-	<div class="float-left">Search Users: </div>
-	 <div class="float-right margin-right-20"><a href="user/add" class="btn btn-primary btn-sm">New User</a></div>
+	<div class="float-left">Log Activity: </div>
   <div class="clear"></div>
 	<span class="line"></span>
 </h3>
 
 <script type="text/javascript">
   $(document).ready(function(){
-    fetch_users();
+    fetch_logs();
   });
 </script>
 
@@ -22,25 +21,28 @@
         </div>
 	    </div>
 		</td>
-		<td>
-      <div class="form-group">
-        <label class="col-lg-2 control-label padding-top-10" for="status">Status:</label>
+    <td>
+       <div class="form-group">
+        <label for="user" class="col-lg-2 control-label padding-top-10">Users:</label>
         <div class="col-lg-6">
-            <select id="status" name="status" class="form-control">
-                <option value="">All </option>
-                <option value="1">Enabled</option>
-                <option value="0">Disabled</option>
-            </select>
+          <select id="user" name="user" class="form-control">
+            <option value="">All </option>
+            <?php
+                $users = $db->get("users");
+                foreach($users as $user):
+                  echo'<option value="'.$user['id'].'">'.$user['name'].' '.$user['lastname'].'</option>';
+                endforeach ?>
+          </select>
         </div>
-      </div><!-- /form-group -->
+      </div>
     </td>
-		<td><button class="btn btn-primary btn-sm" onclick="fetch_users();">Search</button></td>
+		<td><button class="btn btn-primary btn-sm" onclick="fetch_logs();">Search</button></td>
 	</tr>
 </table>
 
-	 <div class="users_fetched"></div>
+	 <div class="logs_fetched"></div>
   </div><!-- /.padding-md -->
 </div><!-- /panel -->
 
-<script src='js/scripts/user_search.js'></script>
+<script src='js/scripts/logs_search.js'></script>
 <?php include('js/scripts/list.php'); ?>

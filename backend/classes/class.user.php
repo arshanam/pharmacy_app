@@ -14,6 +14,8 @@
 			
 			$this->db->where ('username', $username);
 			$this->db->where ('password', $password);
+			$this->db->where ('status', '1');
+			$this->db->where ('backend_login', '1');
 			$results = $this->db->getOne("users");
 			
 			if ($results) {

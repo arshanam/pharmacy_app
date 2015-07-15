@@ -154,7 +154,7 @@ switch ($_POST['f']) {
 				<?php
 				endforeach;
 				echo"<tr>
-					<td colspan='5' style='background-color: #ffffff;'><div style='float:right;'>";
+					<td colspan='7' style='background-color: #ffffff;'><div style='float:right;'>";
 					$pager->byPage = $pageLimit;
 					$pager->rows = $total_customers;
 					$from = $pager->fromPagination();

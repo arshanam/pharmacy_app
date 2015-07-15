@@ -141,6 +141,18 @@
       <!-- /Users -->
 
 
+            <!-- Users -->
+      <li class="<?=isset($_REQUEST['module']) && $_REQUEST['module']=='log' ? 'active' : '';?>">
+        <a href="log/search">
+          <span class="menu-icon"><i class="fa fa-file-text fa-lg">&nbsp;</i></span>
+          <span class="text">Log Activity</span>
+          <span class="menu-hover"></span>
+        </a>
+      </li>
+      <!-- /Log Activity -->
+
+
+
 			<!-- Seetings -->
         <!--
 			<li class="openable open">

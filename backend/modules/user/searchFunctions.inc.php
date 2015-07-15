@@ -45,6 +45,14 @@ switch ($_POST['f']) {
 			$db2->orWhere('lastname LIKE "%%")');
 		endif;
 
+		if(isset($_POST['status']) && $_POST['status']!=null):
+			$db->where('status="'.$_POST['status'].'"');
+			$db2->where('status="'.$_POST['status'].'"');
+		else:
+			$db->where('status LIKE "%%"');
+			$db2->where('status LIKE "%%"');
+		endif;
+
 		$results = $db->get("users", Array ($limitFrom, $pageLimit));
 
 		//$db->echoQuery();
@@ -91,7 +99,7 @@ switch ($_POST['f']) {
 				<?php
 				endforeach;
 				echo"<tr>
-					<td colspan='5' style='background-color: #ffffff;'><div style='float:right;'>";
+					<td colspan='7' style='background-color: #ffffff;'><div style='float:right;'>";
 					$pager->byPage = $pageLimit;
 					$pager->rows = $total_users;
 					$from = $pager->fromPagination();

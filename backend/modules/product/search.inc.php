@@ -55,6 +55,18 @@
         <div class="col-lg-5"></div>
     	</div><!-- /form-group -->
 		</td>
+    <td>
+      <div class="form-group">
+        <label class="col-lg-2 control-label padding-top-10" for="status">Status:</label>
+        <div class="col-lg-6">
+            <select id="status" name="status" class="form-control">
+                <option value="">All </option>
+                <option value="1">Enabled</option>
+                <option value="0">Disabled</option>
+            </select>
+        </div>
+      </div><!-- /form-group -->
+    </td>
 		<td><button class="btn btn-primary btn-sm" onclick="fetch_products();">Search</button></td>
 	</tr>
 </table>
