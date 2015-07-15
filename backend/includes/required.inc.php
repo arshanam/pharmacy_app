@@ -119,6 +119,15 @@ function dateUStoEU($date) {
 	else $date = date("d-m-Y", strtotime($date));
 	return $date;	
 }
+
+function dateTimeUStoEU($date) {
+    if($date == '' || $date == '00-00-0000' || $date == '0000-00-00') $date = '--';
+    else $date = date("d-m-Y - H:i:s", strtotime($date));
+    return $date;   
+}
+
+
+
 function checkMenuItem(){
 	
 	if($_REQUEST['select']==30 || $_REQUEST['select']==31 || $_REQUEST['select']==40 || $_REQUEST['select']==41 || $_REQUEST['select']==34 || $_REQUEST['select']==35 || $_REQUEST['select']==36){
