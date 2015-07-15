@@ -11,11 +11,11 @@
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
       $res = $db->update ('region', $insert);
-      $action_msg='<b>'.$_POST['title'].'</b> Updated!';
+      $action_msg='Region '.$_POST['title'].' Updated!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
       $res = $db->insert("region", $insert);
-      $action_msg='<b>'.$_POST['title'].'</b> Added!';
+      $action_msg='Region '.$_POST['title'].' Added!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
     create_log_action($_SESSION['user_id'], $action_msg);

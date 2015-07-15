@@ -102,14 +102,7 @@
 						<strong><?php isset($_SESSION['user_logged_in_name']) ? $name=$_SESSION['user_logged_in_name'] : $name='No Name'; echo $name; ?></strong>	
 					</div>
 				</div><!-- /user-block -->
-				<div class="search-block">
-					<div class="input-group">
-						<input type="text" class="form-control input-sm" placeholder="search here...">
-						<span class="input-group-btn">
-							<button class="btn btn-default btn-sm" type="button"><i class="fa fa-search"></i></button>
-						</span>
-					</div><!-- /input-group -->
-				</div><!-- /search-block -->
+				
 				
 				<?php include("includes/menu.inc.php"); ?>
 

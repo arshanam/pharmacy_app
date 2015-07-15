@@ -28,11 +28,11 @@
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
       $res = $db->update ('customer', $insert);
-      $action_msg='Customer <b>'.$_POST['card_name'].'</b> Updated!';
+      $action_msg='Customer '.$_POST['card_name'].' Updated!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
       $res = $db->insert("customer", $insert);
-      $action_msg='Customer <b>'.$_POST['card_name'].'</b> Added!';
+      $action_msg='Customer '.$_POST['card_name'].' Added!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
     create_log_action($_SESSION['user_id'], $action_msg);

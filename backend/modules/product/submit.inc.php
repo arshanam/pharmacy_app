@@ -17,11 +17,11 @@
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
       $res = $db->update ('product', $insert);
-      $action_msg='Product <b>'.$_POST['description'].'</b>  Updated!';
+      $action_msg='Product '.$_POST['description'].' Updated!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
       $res = $db->insert("product", $insert);
-      $action_msg='Product <b>'.$_POST['description'].'</b>  Added!';
+      $action_msg='Product '.$_POST['description'].' Added!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
     

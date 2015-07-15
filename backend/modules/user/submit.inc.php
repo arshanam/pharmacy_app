@@ -1,33 +1,33 @@
 <?php
 	if($_SERVER['REQUEST_METHOD'] && $_SERVER['REQUEST_METHOD']=='POST'):
     $_POST['status']==null ? $status = 1 : $status = $_POST['status'];
+    $encryption = new Encryption();
+    $password = $encryption->encode($_POST['password']);
     $insert = array(
-		    "item_code" => post_text_variable($_POST['item_code']),
-        "barcode" => post_text_variable($_POST['barcode']),
-        "description" => post_text_variable($_POST['description']),
-        "supplier" => (int) $_POST['supplier'],
-        "category" => (int) $_POST['category'],
-        "wsale" => post_text_variable($_POST['wsale']),
-        "retail" => post_text_variable($_POST['retail']),
-        "vat" => post_text_variable($_POST['vat']),
-		    "status" => $status,
+		    "name" => post_text_variable($_POST['name']),
+        "lastname" => post_text_variable($_POST['lastname']),
+        "email" => post_text_variable($_POST['email']),
+        "username" => post_text_variable($_POST['username']),
+        "password" => $password,
+        "backend_login" => $_POST['backend_login'],
+        "status" => $status,
 		    "date_created" => date("Y-m-d H:i:s")
 		);
 
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
-      $res = $db->update ('product', $insert);
-      $action_msg='Product <b>'.$_POST['description'].'</b>  Updated!';
+      $res = $db->update ('users', $insert);
+      $action_msg='User <b>'.$_POST['name'].'</b>  Updated!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
-      $res = $db->insert("product", $insert);
-      $action_msg='Product <b>'.$_POST['description'].'</b>  Added!';
+      $res = $db->insert("users", $insert);
+      $action_msg='User <b>'.$_POST['name'].'</b>  Added!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
-    
+
     create_log_action($_SESSION['user_id'], $action_msg); 
    
-		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'product/search">';
+		echo'<meta http-equiv="refresh" content="0;url='.BASEURL.'user/search">';
 
   endif;
 

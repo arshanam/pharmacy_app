@@ -11,11 +11,11 @@
     if(isset($_GET['id'])){
       $db->where ('id', $_GET['id']);
       $res = $db->update ('product_category', $insert);
-      $action_msg='Product Category <b>'.$_POST['title'].'</b>  Updated!';
+      $action_msg='Product Category '.$_POST['title'].' Updated!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
       $res = $db->insert("product_category", $insert);
-      $action_msg='Product Category <b>'.$_POST['title'].'</b>  Added!';
+      $action_msg='Product Category '.$_POST['title'].' Added!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
     

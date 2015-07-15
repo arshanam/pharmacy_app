@@ -23,94 +23,69 @@ $limitFrom = ($pageLimit * $currentPage) - $pageLimit;
 switch ($_POST['f']) {
 
 	//search by region
-	case 'fetch_products':
+	case 'fetch_users':
 		
 		//db2 is for getting total number of rows
 		if(isset($_POST['search_term']) && $_POST['search_term']!=null):
-			$db->where('(item_code LIKE "%'.$_POST['search_term'].'%"');
-			$db->orWhere('barcode LIKE "%'.$_POST['search_term'].'%"');
-			$db->orWhere('description LIKE "%'.$_POST['search_term'].'%")');
+			$db->where('(username LIKE "%'.$_POST['search_term'].'%"');
+			$db->orWhere('name LIKE "%'.$_POST['search_term'].'%"');
+			$db->orWhere('lastname LIKE "%'.$_POST['search_term'].'%")');
 			
-			$db2->where('(item_code LIKE "%'.$_POST['search_term'].'%"');
-			$db2->orWhere('barcode LIKE "%'.$_POST['search_term'].'%"');
-			$db2->orWhere('description LIKE "%'.$_POST['search_term'].'%")');
+			$db2->where('(username LIKE "%'.$_POST['search_term'].'%"');
+			$db2->orWhere('name LIKE "%'.$_POST['search_term'].'%"');
+			$db2->orWhere('lastname LIKE "%'.$_POST['search_term'].'%")');
 			
 		else:
-			$db->where('(item_code LIKE "%%"');
-			$db->orWhere('barcode LIKE "%%"');
-			$db->orWhere('description LIKE "%%")');			
+			$db->where('(username LIKE "%%"');
+			$db->orWhere('name LIKE "%%"');
+			$db->orWhere('lastname LIKE "%%")');			
 
-			$db2->where('(item_code LIKE "%%"');
-			$db2->orWhere('barcode LIKE "%%"');
-			$db2->orWhere('description LIKE "%%")');
+			$db2->where('(username LIKE "%%"');
+			$db2->orWhere('name LIKE "%%"');
+			$db2->orWhere('lastname LIKE "%%")');
 		endif;
 
-		if(isset($_POST['supplier']) && $_POST['supplier']!=null):
-			$db->where('supplier="'.$_POST['supplier'].'"');
-			$db2->where('supplier="'.$_POST['supplier'].'"');
-		else:
-			$db->where('supplier LIKE "%%"');
-			$db2->where('supplier LIKE "%%"');
-		endif;
-
-		if(isset($_POST['category']) && $_POST['category']!=null):
-			$db->where('category="'.$_POST['category'].'"');
-			$db2->where('category="'.$_POST['category'].'"');
-		else:
-			$db->where('category LIKE "%%"');
-			$db2->where('category LIKE "%%"');
-		endif;		
-
-		$results = $db->get("product", Array ($limitFrom, $pageLimit));
+		$results = $db->get("users", Array ($limitFrom, $pageLimit));
 
 		//$db->echoQuery();
 
-		$db2->withTotalCount()->get("product");
+		$db2->withTotalCount()->get("users");
 		//$db2->echoQuery();
-		$total_products = $db2->totalCount;
+		$total_users = $db2->totalCount;
 
-		echo '<div class="total-number-customers" align="center"><span class="badge badge-success">'.$total_products.' products found!</span></div>';
+		echo '<div class="total-number-customers" align="center"><span class="badge badge-success">'.$total_users.' users found!</span></div>';
 		if($results):
 			?>
 			<table class="table-font-size table table-striped" id="dataTable">
 				<thead>
 		      <tr>
 		        <th>#</th>
-		        <th>Item Code</th>
-		        <th>Barcode</th>
-		        <th>Description</th>
-		        <th>Supplier</th>
-		        <th>Category</th>
-		        <th>W/Sale</th>
-		        <th>Retail</th>
-		        <th>VAT</th>
+		        <th>Name</th>
+		        <th>Lastname</th>
+		        <th>Email</th>
+		        <th>Username</th>
+		        <th>Backend Login</th>
 		        <th>Edit</th>
 					</tr>
 				</thead>
 				<tbody>
 
 			<?php
+			//fa-minus-circle
+			//fa-plus-circle
 			$i=$limitFrom;
 			foreach($results as $res):
-				$db->where('id', $res['supplier']);
-				$supplier = $db->getOne("product_supplier");
-
-	      $db->where('id', $res['category']);
-	      $category = $db->getOne("product_category");
-
 	      $i++;
+	    	$res['backend_login']==1 ? $backend_login = '<i title="Yes" alt="Yes" class="fa fa-plus-circle fa-sm"> &nbsp;</i>' : $backend_login='<i title="No" alt="No" class="fa fa-minus-circle fa-sm"> &nbsp;</i>';
 	    ?>
 					<tr>
 						<td><?= $i; ?></td>
-						<td><?= $res['item_code']; ?></td>
-			      <td><?= $res['barcode']; ?></td>
-			      <td><?= substr($res['description'],0,40);?>...</td>
-						<td><?= $supplier['title']; ?></td>
-						<td><?= $category['title']; ?></td>
-						<td><?= $res['wsale']; ?></td>
-						<td><?= $res['retail']; ?></td>
-						<td><?= $res['vat']; ?></td>
-			      <td><a href="product/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
+						<td><?= isempty($res['name']); ?></td>
+			      <td><?= isempty($res['lastname']); ?></td>
+			      <td><?= isempty($res['email']); ?></td>
+						<td><?= $res['username']; ?></td>
+						<td><div style="padding-left: 40px;"><?= $backend_login; ?></div></td>
+						<td><a href="user/add/<?=$res['id'];?>" title="Edit" class="btn btn-primary btn-xs tooltip-test" data-toggle="tooltip" data-placement="top"><i class="fa fa-edit"></i></a></td>
 					</tr>
 
 				<?php
@@ -118,7 +93,7 @@ switch ($_POST['f']) {
 				echo"<tr>
 					<td colspan='5' style='background-color: #ffffff;'><div style='float:right;'>";
 					$pager->byPage = $pageLimit;
-					$pager->rows = $total_products;
+					$pager->rows = $total_users;
 					$from = $pager->fromPagination();
 					$pages = $pager->pages();
 					!isset($page) ? $page=1 : $page;
@@ -126,9 +101,9 @@ switch ($_POST['f']) {
 						echo '<div class="pagination">';
 							foreach ($pages as $key){
 								if($key['p']==$page) {
-									echo '<a href="javascript:void(0);" class="active"  onclick="update_products('.$key['p'].');">'.$key['page'].'</a>';
+									echo '<a href="javascript:void(0);" class="active"  onclick="update_users('.$key['p'].');">'.$key['page'].'</a>';
 								} else {
-									echo '<a href="javascript:void(0);" onclick="update_products('.$key['p'].');">'.$key['page'].'</a>';
+									echo '<a href="javascript:void(0);" onclick="update_users('.$key['p'].');">'.$key['page'].'</a>';
 								}
 							}
 						echo '</div>';
@@ -139,7 +114,7 @@ switch ($_POST['f']) {
 
 			else:
 				echo'<div class="alert alert-danger">
-							<strong>No Products Found with these criterias!</strong> Change a few things up and try submitting again.
+							<strong>No users Found with these criterias!</strong> Change a few things up and try submitting again.
 						</div>';
 
 			endif;

@@ -20,6 +20,7 @@
 				$_SESSION['login'] = true;
 				$_SESSION['user_logged_in_name']=$results['name']." ".$results['lastname'];
 				$_SESSION['user_id']=$results['id'];
+				create_log_action($_SESSION['user_id'], 'User Logged in!');
 				return true;
 			}else{
 				return false;
