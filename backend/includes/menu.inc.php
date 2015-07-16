@@ -141,7 +141,11 @@
       <!-- /Users -->
 
 
+<<<<<<< HEAD
       <!-- Log Activity -->
+=======
+            <!-- Users -->
+>>>>>>> f06dbb1937dbeb277ad237e41b364e184504f84c
       <li class="<?=isset($_REQUEST['module']) && $_REQUEST['module']=='log' ? 'active' : '';?>">
         <a href="log/search">
           <span class="menu-icon"><i class="fa fa-file-text fa-lg">&nbsp;</i></span>
@@ -152,6 +156,10 @@
       <!-- /Log Activity -->
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f06dbb1937dbeb277ad237e41b364e184504f84c
 			<!-- Seetings -->
         <!--
 			<li class="openable open">

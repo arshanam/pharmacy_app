@@ -32,6 +32,7 @@
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not updated! Please try again!');
     }else{
       $res = $db->insert("customer", $insert);
+<<<<<<< HEAD
       $insert = array(
         "card_name" => post_text_variable($_POST['card_name']),
         "card_code" => post_text_variable($_POST['card_code']),
@@ -55,6 +56,8 @@
         "date_created" => date("Y-m-d H:i:s")
       );
 
+=======
+>>>>>>> f06dbb1937dbeb277ad237e41b364e184504f84c
       $action_msg='Customer '.$_POST['card_name'].' Added!';
       $res ? $_SESSION['result']=array('res'=>'gritter-success','msg'=>$action_msg) : $_SESSION['msg']=array('res'=>'gritter-danger','msg'=>'Not added! Please try again!');
     }
